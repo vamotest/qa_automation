@@ -1,4 +1,4 @@
-from python_types import sum_integers, string, list_matrix_transpose, set_sym_dif
+from python_types import sum_integers, string, list_matrix_transpose, list_pairs, set_sym_dif
 
 
 class TestPythonExamples:
@@ -31,11 +31,17 @@ class TestPythonExamples:
         determinant = 13
         assert list_matrix_transpose(list_data) == determinant
 
+    def test_list_pairs(self, list_pairs_data):
+        """
+        :param list_pairs_data:
+        :return:
+        """
+        assert list_pairs(*list_pairs_data) == [(2, -2), (-5, 5), (6, -6), (-2, 2)]
+
+
     def test_set_sym_dif(self, set_data):
         """
         :param set_data:
         :return:
         """
-
         assert set_sym_dif(*set_data) == {1, 2, 3, 7}
-
