@@ -1,4 +1,4 @@
-from python_types import sum_integers, string
+from python_types import sum_integers, string, list_matrix_transpose
 
 
 class TestPythonExamples:
@@ -22,3 +22,11 @@ class TestPythonExamples:
         """
 
         assert string(string_data) == 'Yes'
+
+    def test_list_matrix_transpose(self, list_data):
+        """
+        :param list_data:
+        :return:
+        """
+        determinant = 13
+        assert list_matrix_transpose(list_data) == determinant
