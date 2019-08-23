@@ -20,7 +20,16 @@ def session_fixture(request):
 
     request.addfinalizer(fin)
 
+
 @pytest.fixture()
 def sum_integers_data():
     return 4, 5
+
+
+@pytest.fixture()
+def string_data():
+    str_pal = "А роза упала на лапу Азора"
+    return str_pal
+
+
 
