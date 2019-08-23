@@ -1,6 +1,3 @@
-import re
-
-
 def sum_integers(int1, int2):
     # type: (int, int) -> int
     return int1 + int2
