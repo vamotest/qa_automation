@@ -37,6 +37,14 @@ def list_data():
     matrix = [[4, -5, 7], [1, -4, 9], [-4, 0, 5]]
     return matrix
 
+
+@pytest.fixture()
+def list_pairs_data():
+    list1 = [2, 4, -5, 6, 8, -2]
+    list2 = [2, -6, 8, 3, 5, -2]
+    return list1, list2
+
+
 @pytest.fixture()
 def set_data():
     set1 = {1, 3, 5}

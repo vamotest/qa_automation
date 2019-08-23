@@ -20,6 +20,16 @@ def list_matrix_transpose(matrix):
     return det_matrix
 
 
+def list_pairs(list1, list2):
+    pairs = []
+    for x in list1:
+        for y in list2:
+            cur_sum = x + y
+            if cur_sum == 0:
+                pairs.append((x, y))
+    return pairs
+
+
 def set_sym_dif(set1, set2):
     sym_dif = set1.symmetric_difference(set2)
     return sym_dif
