@@ -18,3 +18,8 @@ def list_matrix_transpose(matrix):
     det_matrix = linalg.det(matrix)
     det_matrix = math.ceil(det_matrix)
     return det_matrix
+
+
+def set_sym_dif(set1, set2):
+    sym_dif = set1.symmetric_difference(set2)
+    return sym_dif
