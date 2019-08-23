@@ -32,4 +32,7 @@ def string_data():
     return str_pal
 
 
-
+@pytest.fixture()
+def list_data():
+    matrix = [[4, -5, 7], [1, -4, 9], [-4, 0, 5]]
+    return matrix
