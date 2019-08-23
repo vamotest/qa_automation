@@ -1,4 +1,4 @@
-from python_types import sum_integers, string, list_matrix_transpose
+from python_types import sum_integers, string, list_matrix_transpose, set_sym_dif
 
 
 class TestPythonExamples:
@@ -30,3 +30,12 @@ class TestPythonExamples:
         """
         determinant = 13
         assert list_matrix_transpose(list_data) == determinant
+
+    def test_set_sym_dif(self, set_data):
+        """
+        :param set_data:
+        :return:
+        """
+
+        assert set_sym_dif(*set_data) == {1, 2, 3, 7}
+

@@ -36,3 +36,9 @@ def string_data():
 def list_data():
     matrix = [[4, -5, 7], [1, -4, 9], [-4, 0, 5]]
     return matrix
+
+@pytest.fixture()
+def set_data():
+    set1 = {1, 3, 5}
+    set2 = {7, 5, 2}
+    return set1, set2
