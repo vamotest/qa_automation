@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 from python_types import sum_integers, string, list_matrix_transpose, \
     list_pairs, set_sym_dif, dict_players, tuple_text, string_words
+=======
+from python_types import *
+>>>>>>> trunk
 
 
 class TestPythonExamples:
@@ -25,6 +29,7 @@ class TestPythonExamples:
 
         assert string(string_data) == 'Yes'
 
+<<<<<<< HEAD
     def test_string_word(self, string_words_data):
         """
         :param string_words_data:
@@ -32,6 +37,17 @@ class TestPythonExamples:
         """
 
         assert string_words(string_words_data) == 10
+=======
+
+    def test_string_replace(self, string_replace_data):
+        """
+        :param string_replace_data:
+        :return:
+        """
+
+        assert string_replace(string_replace_data) \
+            == "one2one3one4one5one6one7one8one9one0one"
+>>>>>>> trunk
 
 
     def test_list_matrix_transpose(self, list_data):
