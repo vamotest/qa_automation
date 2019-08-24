@@ -33,15 +33,15 @@ def string_data():
 
 
 @pytest.fixture()
-<<<<<<< HEAD
-def string_words_data():
-    text = "In the hole in the ground there lived a hobbit"
-    return text
-=======
 def string_replace_data():
     str_for_replace = "1213141516171819101"
     return str_for_replace
->>>>>>> trunk
+
+
+@pytest.fixture()
+def string_words_data():
+    text = "In the hole in the ground there lived a hobbit"
+    return text
 
 
 @pytest.fixture()
