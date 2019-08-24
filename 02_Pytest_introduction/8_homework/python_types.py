@@ -1,6 +1,7 @@
 from numpy import linalg
 import math
 
+
 def sum_integers(int1, int2):
     # type: (int, int) -> int
     return int1 + int2
@@ -33,3 +34,9 @@ def list_pairs(list1, list2):
 def set_sym_dif(set1, set2):
     sym_dif = set1.symmetric_difference(set2)
     return sym_dif
+
+
+def dict_players(**players):
+    values = list(players.values())
+    values = sorted(values)
+    return values
