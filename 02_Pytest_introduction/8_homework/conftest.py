@@ -33,6 +33,12 @@ def string_data():
 
 
 @pytest.fixture()
+def string_replace_data():
+    str_for_replace = "1213141516171819101"
+    return str_for_replace
+
+
+@pytest.fixture()
 def list_data():
     matrix = [[4, -5, 7], [1, -4, 9], [-4, 0, 5]]
     return matrix
