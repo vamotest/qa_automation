@@ -1,4 +1,5 @@
-from python_types import sum_integers, string, list_matrix_transpose, list_pairs, set_sym_dif
+from python_types import sum_integers, string, list_matrix_transpose, \
+    list_pairs, set_sym_dif, dict_players
 
 
 class TestPythonExamples:
@@ -36,7 +37,8 @@ class TestPythonExamples:
         :param list_pairs_data:
         :return:
         """
-        assert list_pairs(*list_pairs_data) == [(2, -2), (-5, 5), (6, -6), (-2, 2)]
+        assert list_pairs(*list_pairs_data) == [(2, -2), (-5, 5),
+                                                (6, -6), (-2, 2)]
 
 
     def test_set_sym_dif(self, set_data):
@@ -45,3 +47,12 @@ class TestPythonExamples:
         :return:
         """
         assert set_sym_dif(*set_data) == {1, 2, 3, 7}
+
+
+    def test_dict_players(self, dict_data):
+        """
+        :param dict_data:
+        :return:
+        """
+        assert dict_players(**dict_data) == [2780, 2797, 2801, 2822, 2842]
+

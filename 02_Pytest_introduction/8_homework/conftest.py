@@ -50,3 +50,16 @@ def set_data():
     set1 = {1, 3, 5}
     set2 = {7, 5, 2}
     return set1, set2
+
+
+@pytest.fixture()
+def dict_data():
+    players = {
+        'Carlsen': 2842,
+        'Caruana': 2822,
+        'Mamedyarov': 2801,
+        'Ding': 2797,
+        'Giri': 2780
+    }
+    return players
+
