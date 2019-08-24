@@ -40,3 +40,8 @@ def dict_players(**players):
     values = list(players.values())
     values = sorted(values)
     return values
+
+
+def tuple_text(text):
+    count_text = text.count('a')
+    return count_text
