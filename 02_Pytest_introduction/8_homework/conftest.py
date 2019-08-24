@@ -33,6 +33,12 @@ def string_data():
 
 
 @pytest.fixture()
+def string_words_data():
+    text = "In the hole in the ground there lived a hobbit"
+    return text
+
+
+@pytest.fixture()
 def list_data():
     matrix = [[4, -5, 7], [1, -4, 9], [-4, 0, 5]]
     return matrix

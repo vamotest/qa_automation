@@ -1,5 +1,5 @@
 from python_types import sum_integers, string, list_matrix_transpose, \
-    list_pairs, set_sym_dif, dict_players, tuple_text
+    list_pairs, set_sym_dif, dict_players, tuple_text, string_words
 
 
 class TestPythonExamples:
@@ -13,6 +13,7 @@ class TestPythonExamples:
         :param sum_integers_data:
         :return: sum of two integers
         """
+
         assert sum_integers(*sum_integers_data) == 9
 
     def test_string(self, string_data):
@@ -24,11 +25,21 @@ class TestPythonExamples:
 
         assert string(string_data) == 'Yes'
 
+    def test_string_word(self, string_words_data):
+        """
+        :param string_words_data:
+        :return:
+        """
+
+        assert string_words(string_words_data) == 10
+
+
     def test_list_matrix_transpose(self, list_data):
         """
         :param list_data:
         :return:
         """
+
         determinant = 13
         assert list_matrix_transpose(list_data) == determinant
 
@@ -46,6 +57,7 @@ class TestPythonExamples:
         :param set_data:
         :return:
         """
+
         assert set_sym_dif(*set_data) == {1, 2, 3, 7}
 
 
@@ -54,6 +66,7 @@ class TestPythonExamples:
         :param dict_data:
         :return:
         """
+
         assert dict_players(**dict_data) == [2780, 2797, 2801, 2822, 2842]
 
     def test_tuple_text(self, tuple_data):
@@ -61,5 +74,6 @@ class TestPythonExamples:
         :param tuple_data:
         :return:
         """
+
         count = 14
         assert tuple_text(tuple_data) == count
