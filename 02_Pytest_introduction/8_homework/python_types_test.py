@@ -1,5 +1,5 @@
 from python_types import sum_integers, string, list_matrix_transpose, \
-    list_pairs, set_sym_dif, dict_players
+    list_pairs, set_sym_dif, dict_players, tuple_text
 
 
 class TestPythonExamples:
@@ -56,3 +56,10 @@ class TestPythonExamples:
         """
         assert dict_players(**dict_data) == [2780, 2797, 2801, 2822, 2842]
 
+    def test_tuple_text(self, tuple_data):
+        """
+        :param tuple_data:
+        :return:
+        """
+        count = 14
+        assert tuple_text(tuple_data) == count

@@ -54,6 +54,9 @@ def set_data():
 
 @pytest.fixture()
 def dict_data():
+    """
+    :return: players dict
+    """
     players = {
         'Carlsen': 2842,
         'Caruana': 2822,
@@ -63,3 +66,16 @@ def dict_data():
     }
     return players
 
+
+@pytest.fixture()
+def tuple_data():
+    """
+    :return:
+    """
+    text = ('On then sake home is am leaf. Of suspicion do departure at '
+            'extremely he believing. Do know said mind do rent they oh hope '
+            'of. General enquire picture letters garrets on offices of no on. '
+            'Say one hearing between excited evening all inhabit thought you. '
+            'Style begin mr heard by in music tried do. To unreserved '
+            'projection no introduced invitation. ')
+    return text
