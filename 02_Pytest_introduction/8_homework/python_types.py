@@ -15,15 +15,14 @@ def string(str_pal):
     return 'Yes' if str_pal_copy == str_pal_copy[::-1] else 'No'
 
 
-<<<<<<< HEAD
 def string_words(text):
     words = (text.count(' ') + 1)
     return words
-=======
+
+
 def string_replace(str_for_replace):
     replaced = str_for_replace.replace('1', 'one')
     return replaced
->>>>>>> trunk
 
 
 def list_matrix_transpose(matrix):
