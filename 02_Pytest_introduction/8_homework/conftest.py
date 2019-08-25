@@ -27,6 +27,12 @@ def sum_integers_data():
 
 
 @pytest.fixture()
+def is_leap_data():
+    year = 2000
+    return year
+
+
+@pytest.fixture()
 def string_data():
     str_pal = "А роза упала на лапу Азора"
     return str_pal
@@ -66,9 +72,6 @@ def set_data():
 
 @pytest.fixture()
 def dict_data():
-    """
-    :return: players dict
-    """
     players = {
         'Carlsen': 2842,
         'Caruana': 2822,
@@ -81,9 +84,6 @@ def dict_data():
 
 @pytest.fixture()
 def tuple_data():
-    """
-    :return:
-    """
     text = ('On then sake home is am leaf. Of suspicion do departure at '
             'extremely he believing. Do know said mind do rent they oh hope '
             'of. General enquire picture letters garrets on offices of no on. '
