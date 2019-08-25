@@ -37,4 +37,3 @@ pip install -r requirements.txt
 ```sh
 pytest -v -s
 ```
-
