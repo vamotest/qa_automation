@@ -22,8 +22,19 @@
 <ol>
 <li>Скопируйте проект в директорию
 <li>Создайте виртуальное окружение и активируйте его выполнив</li>
-  `python3 -m venv env && env source env/bin/activate`
-<li>Обновите pip до последней версии выполнив `pip install --upgrade pip`</li>
-<li>Установите зависимости выполнив `pip install -r requirements.txt`</li>
-<li>Запустите тесты выполнив команду `pytest -v -s`</li>
+```sh
+  python3 -m venv env && env source env/bin/activate
+```
+<li>Обновите pip до последней версии выполнив</li>
+```sh
+  pip install --upgrade pip
+```
+<li>Установите зависимости выполнив</li>
+```sh
+pip install -r requirements.txt
+```
+<li>Запустите тесты выполнив команду</li>
+```sh
+pytest -v -s
+```
 </ol>
