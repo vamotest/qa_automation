@@ -8,25 +8,26 @@ class TestPythonExamples:
 
     def test_integers(self, sum_integers_data):
         """
-        Test checks Python data type "Integer"
+        Проверка суммы двух чисел
         :param sum_integers_data:
-        :return: sum of two integers
+        :return:
         """
 
         assert sum_integers(*sum_integers_data) == 9
 
     def test_string(self, string_data):
         """
-        Test checks Python data type "String"
+        Проверка ялвляется ли числа палиндромом
         :param string_data:
-        :return: is palindrome string or not
+        :return:
         """
 
-        assert string(string_data) == 'Yes'
+        assert string(string_data) == 'YES'
 
 
     def test_string_word(self, string_words_data):
         """
+        Проверка количества слов в тексте
         :param string_words_data:
         :return:
         """
@@ -34,8 +35,19 @@ class TestPythonExamples:
         assert string_words(string_words_data) == 10
 
 
+    def test_is_leap(self, is_leap_data):
+        """
+        Проверка является ли год високосным
+        :param is_leap_data:
+        :return:
+        """
+
+        assert is_leap(is_leap_data) == "YES"
+
+
     def test_string_replace(self, string_replace_data):
         """
+        Проверка замены строки
         :param string_replace_data:
         :return:
         """
@@ -47,6 +59,7 @@ class TestPythonExamples:
 
     def test_list_matrix_transpose(self, list_data):
         """
+        Проверка вычисление определителя матрица
         :param list_data:
         :return:
         """
@@ -56,6 +69,7 @@ class TestPythonExamples:
 
     def test_list_pairs(self, list_pairs_data):
         """
+        Проверка попарных списоков
         :param list_pairs_data:
         :return:
         """
@@ -65,6 +79,7 @@ class TestPythonExamples:
 
     def test_set_sym_dif(self, set_data):
         """
+        Проверка симметрическая разницы множеств
         :param set_data:
         :return:
         """
@@ -74,6 +89,7 @@ class TestPythonExamples:
 
     def test_dict_players(self, dict_data):
         """
+        Проверка сортировки значений игроков
         :param dict_data:
         :return:
         """
@@ -82,6 +98,7 @@ class TestPythonExamples:
 
     def test_tuple_text(self, tuple_data):
         """
+        Проверка количества вхождений буквы 'а' в текст
         :param tuple_data:
         :return:
         """
