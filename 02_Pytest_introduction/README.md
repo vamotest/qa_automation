@@ -30,7 +30,7 @@ cd 02_Pytest_introduction/tests
 ```
 * Создайте виртуальное окружение и активируйте его:
 ```sh
-python3 -m venv env && env source env/bin/activate
+python3 -m venv env && source env/bin/activate
 ```
 * Обновите pip до последней версии:
 ```sh
