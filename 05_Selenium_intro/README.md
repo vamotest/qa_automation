@@ -37,8 +37,8 @@
 
 ### Arguments:
 ```sh
---browser: Chrome/Firefox/Safari - default="Chrome"
---opencart_url: http://localhost/index.php - default="http://localhost:80/"
+--browser (default="Chrome"): Chrome/Firefox/Safari
+--opencart_url (default="http://localhost:80/"): http://localhost/index.php
 --verbose: increase verbosity
 ```
 
