@@ -1,15 +1,13 @@
 # Удаленный запуск Selenium 
 
-### How to use:
-* Создайте виртуальное окружение и активируйте его:
-```sh
-~ python3 -m venv env && source env/bin/activate
+* Научитесь использовать облачный грид
+* Запустить несколько тестов в каком-нибудь облачном сервисе на выбор:
+
 ```
-* Обновите pip до последней версии:
-```sh
-~ pip install --upgrade pip
+1. https://www.browserstack.com/
+2. https://www.gridlastic.com/
+3. https://saucelabs.com/
+4. https://testingbot.com/
 ```
-* Установите зависимости:
-```sh
-~ pip install -r requirements.txt
-```
+
+Критерии оценки: Ссылка на коммит + скриншот с облачного сервиса
