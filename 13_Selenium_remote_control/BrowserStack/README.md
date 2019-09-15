@@ -10,4 +10,4 @@
 4. https://testingbot.com/
 ```
 
-Критерии оценки: Ссылка на коммит + скриншот с облачного сервиса
+![Sample Test (Flip a coin)](https://cloclo18.datacloudmail.ru/weblink/view/zgHJ/2geup8mgZ?etag=E1C334A3433EAF3FBDF561B9930F9F10B34C96FC&key=ade479aba2f11a4077d805cb681ebdff8284b9fd)
