@@ -24,9 +24,10 @@ def ssh_client_finish():
 def test_restart_service():
     ssh_authorization()
     stdin, stdout, stderr =\
-        client.exec_command('export PATH=$PATH:/sbin:/bin:/usr/bin:/usr/sbin:'
-                            '/usr/local/sbin:/usr/local/bin '
-                            '&& echo '' | sudo -S /etc/init.d/dbus restart')
+        client.exec_command(
+            'export PATH=$PATH:/sbin:/bin:/usr/bin:/usr/sbin:/usr/local/sbin:/'
+            'usr/local/bin && echo '' | sudo -S /etc/init.d/dbus restart'
+        )
     data_restart_service = stdout.read() + stderr.read()
     if "Starting" and "done" in data_restart_service.decode("utf-8"):
         print('Service was successfully restart')
@@ -41,7 +42,7 @@ def test_reboot_system():
     stdin, stdout, stderr = client.exec_command('last reboot')
     data_before_reboot = stdout.read() + stderr.read()
     print(data_before_reboot.decode("utf-8"))
-    client.exec_command('sudo -S reboot -f')
+    client.exec_command('echo '' | sudo -S reboot -f')
     ssh_client_finish()
 
     time.sleep(10)
