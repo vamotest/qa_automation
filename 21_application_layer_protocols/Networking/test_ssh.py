@@ -1,16 +1,20 @@
+import yaml
 import time
 import paramiko
 
-host = '127.0.0.1'
-user = 'vamotest'
-secret = 'ostrovok'
-port = 4422
+
+conf = yaml.load(open('conf/application.yml'))
 client = paramiko.SSHClient()
 
 
 def ssh_authorization():
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-    client.connect(hostname=host, username=user, password=secret, port=port)
+    client.connect(
+        host=conf['credentials']['host'],
+        user=conf['user']['user'],
+        secret=conf['credentials']['secret'],
+        port=conf['credentials']['port']
+    )
 
 
 def ssh_client_finish():
