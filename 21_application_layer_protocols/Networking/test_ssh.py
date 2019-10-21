@@ -11,7 +11,7 @@ def ssh_authorization():
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(
         host=conf['credentials']['host'],
-        user=conf['user']['user'],
+        user=conf['credentials']['user'],
         secret=conf['credentials']['secret'],
         port=conf['credentials']['port']
     )
