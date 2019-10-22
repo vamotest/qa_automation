@@ -36,7 +36,7 @@
 ~ nano /etc/ssh/sshd_config
 
 ... 
-PermitRootLogin without-password -> PermitRootLogin yes
+PermitRootLogin without-password → PermitRootLogin yes
 ...
 ```
 * Необходимо сгенерировать SSH-ключ на локальной компьютере:
