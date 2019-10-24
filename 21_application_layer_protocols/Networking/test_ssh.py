@@ -38,5 +38,3 @@ def test_reboot_system():
         assert False, 'System was not successfully reboot'
     else:
         assert False, 'Something wrong'
-
-
