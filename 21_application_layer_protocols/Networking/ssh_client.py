@@ -2,7 +2,6 @@ import yaml
 import paramiko
 
 
-
 conf = yaml.safe_load(open('configuration.yml'))
 client = paramiko.SSHClient()
 
