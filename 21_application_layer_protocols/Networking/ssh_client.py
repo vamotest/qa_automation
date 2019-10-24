@@ -18,3 +18,4 @@ def ssh_authorization():
 
 def ssh_client_finish():
     client.close()
+
