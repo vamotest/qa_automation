@@ -3,16 +3,16 @@ import time
 import paramiko
 
 
-conf = yaml.load(open('conf/application.yml'))
+conf = yaml.safe_load(open('configuration.yml'))
 client = paramiko.SSHClient()
 
 
 def ssh_authorization():
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     client.connect(
-        host=conf['credentials']['host'],
-        user=conf['credentials']['user'],
-        secret=conf['credentials']['secret'],
+        hostname=conf['credentials']['hostname'],
+        username=conf['credentials']['username'],
+        password=conf['credentials']['password'],
         port=conf['credentials']['port']
     )
 
