@@ -8,7 +8,7 @@ mkdir hub && cd hub && wget -O hub.jar https://github.com/groupon/Selenium-Grid-
 ```sh
 mkdir node_local && cd node_local && wget -O node_local.jar https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar && java -jar node_local.jar  && cd ..
 ```
-* Во время настройки необходимо задать IP-адрес Selenium Grid Hub. Также указываем, что данная `node_local` не будет использовать `Firefox`/`Chrome`.
+* Во время настройки необходимо задать IP-адрес `Selenium Grid Hub`. Также указываем, что данная `node_local` не будет использовать `Firefox`/`Chrome`.
 ```
 What is the HOST for the Selenium Grid Hub?
 Default Value: 127.0.0.1
@@ -30,7 +30,7 @@ Default Value: 0
 ```sh
 mkdir node_remote && cd node_remote && wget -O node_remote.jar https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar && java -jar node_remote.jar  && cd ..
 ```
-* Во время настройки необходимо задать IP-адрес Selenium Grid Hub. Также указываем, что данная `node_remote` будет использовать `Firefox`/`Chrome`.
+* Во время настройки необходимо задать IP-адрес `Selenium Grid Hub`. Также указываем, что данная `node_remote` будет использовать `Firefox`/`Chrome`.
 ```
 What is the HOST for the Selenium Grid Hub?
 Default Value: 127.0.0.1
