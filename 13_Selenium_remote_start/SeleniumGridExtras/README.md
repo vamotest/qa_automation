@@ -1,7 +1,5 @@
 ### How to use:
 
-------------------
-
 * Необходимо скачать образ [Selenium Grid Extras](https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar) и запустить его в роли `hub`
 ```sh
 mkdir hub && cd hub && wget -O hub.jar https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar && java -jar hub.jar  && cd ..
@@ -30,7 +28,7 @@ Default Value: 0
 ```
 * На удаленной системе необходимо скачать образ [Selenium Grid Extras](https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar) и запустить его в роли `node`
 ```sh
-mkdir node_remote && cd node_local && wget -O node_remote.jar https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar && java -jar node_remote.jar  && cd ..
+mkdir node_remote && cd node_remote && wget -O node_remote.jar https://github.com/groupon/Selenium-Grid-Extras/releases/download/v2.0.4/SeleniumGridExtras-2.0.4-SNAPSHOT-jar-with-dependencies.jar && java -jar node_remote.jar  && cd ..
 ```
 * Во время настройки необходимо задать IP-адрес Selenium Grid Hub. Также указываем, что данная `node_remote` будет использовать `Firefox`/`Chrome`.
 ```
