@@ -11,6 +11,7 @@ def test_is_vsftpd_installed():
     # Авторизовываемся по SSH:
     ssh_authorization()
 
+    # Проверяем, что пакет vsftpd установлен
     stdin, stdout, stderr = client.exec_command('dpkg -s vsftpd')
     is_vsftpd_installed = stdout.read() + stderr.read()
 
