@@ -28,3 +28,59 @@ def test_is_vsftpd_installed():
 
     # Завершаем подключение по SSH:
     ssh_client_finish()
+
+
+def test_is_user_created():
+    # Авторизовываемся по SSH:
+    ssh_authorization()
+
+    # Создаем пользователя:
+    client.exec_command('sudo adduser ' + conf['user']['name'])
+    client.exec_command(conf['user']['password'])
+    client.exec_command(conf['user']['retype_password'])
+    client.exec_command(conf['user']['full_name'])
+    client.exec_command(conf['user']['room_number'])
+    client.exec_command(conf['user']['work_phone'])
+    client.exec_command(conf['user']['home_phone'])
+    client.exec_command(conf['user']['other'])
+
+    # Подтверждаем, что данные введены корректно:
+    client.exec_command(conf['user']['is_information_correct'])
+
+    # Создаем каталог ftp:
+    client.exec_command('sudo mkdir /home/' + conf['user']['name'] + '/ftp')
+
+    # Устанавливаем права на него:
+    client.exec_command(
+        'sudo chown nobody:nogroup /home/' + conf['user']['name'] + '/ftp'
+    )
+
+    # Отнимием право на запись в этом каталоге:
+    client.exec_command(
+        'sudo chmod a-w /home/' + conf['user']['name'] + '/ftp'
+    )
+
+    # Cоздаем каталог для хранения файлов:
+    client.exec_command(
+        'sudo mkdir /home' + conf['user']['name'] + '/ftp/files'
+    )
+
+    # Передаем пользователю права собственности на него:
+    client.exec_command(
+        'sudo chown ' + conf['user']['name'] + ':' + conf['user']['name']
+        + '/home/' + conf['user']['name'] + '/ftp/files'
+    )
+
+    # Проверяем, что пользователь есть в списке FTP пользователей:
+    stdin, stdout, stderr = client.exec_command('cat /etc/vsftpd.userlist')
+    is_user_created = stdout.read() + stderr.read()
+
+    if conf['user']['name'] in is_user_created.decode():
+        print('User is successfully created')
+    elif conf['user']['name'] not in is_user_created.decode():
+        assert False, 'User is not successfully created'
+    else:
+        assert False, 'Something wrong'
+
+    # Завершаем подключение по SSH:
+    ssh_client_finish()
