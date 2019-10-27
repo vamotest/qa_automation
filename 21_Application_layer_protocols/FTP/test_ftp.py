@@ -84,3 +84,26 @@ def test_is_user_created():
 
     # Завершаем подключение по SSH:
     ssh_client_finish()
+
+
+def test_is_user_deleted():
+
+    # Авторизовываемся по SSH:
+    ssh_authorization()
+
+    # Проверяем, что пользователь есть в списке FTP пользователей
+    stdin, stdout, stderr = client.exec_command('cat /etc/vsftpd.userlist')
+    is_user_created = stdout.read() + stderr.read()
+
+    # Удаляем пользователя
+    client.exec_command('sudo userdel ' + conf['user']['name'])
+
+    if conf['user']['add'] not in is_user_created.decode():
+        print('User is successfully deleted')
+    elif conf['user']['add'] not in is_user_created.decode():
+        assert False, 'User is not successfully deleted'
+    else:
+        assert False, 'Something wrong'
+
+    # Завершаем подключение по SSH:
+    ssh_client_finish()
