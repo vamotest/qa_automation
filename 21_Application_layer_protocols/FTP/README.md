@@ -106,7 +106,7 @@ ftp_username=ftp
 ...
 Connected to localhost.
 220 (vsFTPd 3.0.3)
-Name (localhost:name): user
+Name (localhost:name): {usename}
 331 Please specify the password.
 Password:
 230 Login successful.
