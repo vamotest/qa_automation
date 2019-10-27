@@ -9,9 +9,9 @@ def test_restart_service():
     )
     data_restart_service = stdout.read() + stderr.read()
     if "Starting" and "dbus" in data_restart_service.decode("utf-8"):
-        print('Service was successfully restart')
+        print('Service was successfully restarted')
     elif "Starting" and "dbus" not in data_restart_service.decode("utf-8"):
-        assert False, 'Service was not successfully restart'
+        assert False, 'Service was not successfully restarted'
     else:
         assert False, 'Something wrong'
 
@@ -33,8 +33,8 @@ def test_reboot_system():
     ssh_client_finish()
 
     if data_before_reboot != data_after_reboot:
-        print('System was successfully reboot')
+        print('System was successfully rebooted')
     elif data_before_reboot == data_after_reboot:
-        assert False, 'System was not successfully reboot'
+        assert False, 'System was not successfully rebooted'
     else:
         assert False, 'Something wrong'
