@@ -43,10 +43,10 @@
 ```sh
 ~ sudo adduser {usename}
 
-Adding user `{usename}' ...
-Adding new group `{usename}' (1007) ...
-Adding new user `{usename}' (1006) with group `{usename}' ...
-Creating home directory `/home/{usename}' ...
+Adding user `{username}' ...
+Adding new group `{username}' (1007) ...
+Adding new user `{username}' (1006) with group `{username}' ...
+Creating home directory `/home/{username}' ...
 Copying files from `/etc/skel' ...
 Enter new UNIX password:
 Retype new UNIX password:
@@ -63,15 +63,15 @@ Is the information correct? [Y/n] Y
 * Создайте каталог ftp, установите права на него и отнимите право на запись
  в этом каталоге:
 ```sh
-~ sudo mkdir /home/{usename}/ftp
-~ sudo chown nobody:nogroup /home/{usename}/ftp
-~ sudo chmod a-w /home/{usename}/ftp
+~ sudo mkdir /home/{username}/ftp
+~ sudo chown nobody:nogroup /home/{username}/ftp
+~ sudo chmod a-w /home/{username}/ftp
 ``` 
 * Теперь создайте каталог для хранения файлов и передайте пользователю права
 собственности на него:
 ```sh
-~ sudo mkdir /home/{usename}/ftp/files
-~ sudo chown {usename}:{usename} /home/{usename}/ftp/files
+~ sudo mkdir /home/{username}/ftp/files
+~ sudo chown {username}:{username} /home/{username}/ftp/files
 ```
 * Нужно отредактировать `vsftpd.conf` и заменить его содержимое следующим:
 ```sh
@@ -106,7 +106,7 @@ ftp_username=ftp
 ...
 Connected to localhost.
 220 (vsFTPd 3.0.3)
-Name (localhost:name): {usename}
+Name (localhost:name): {username}
 331 Please specify the password.
 Password:
 230 Login successful.
