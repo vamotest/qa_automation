@@ -90,3 +90,29 @@ def test_ftp_cd():
     # Завершаем подключение по FTP:
     ftp_client_finish()
 
+
+def test_ftp_put():
+
+    # Авторизовываемся по FTP:
+    ftp_authorization()
+
+    # Переходим в папку на удаленном сервере, куда мы хотим загрузить файл:
+    ftp.cwd(conf['user']['path_to_remote_folder'])
+
+    # Загружаем файл с локальной системы на удаленный сервер:
+    with open(conf['user']['remote_file'], 'r') as file:
+        data_put = ftp.storlines('STOR' + conf['user']['local_file'], file)
+
+    # Проверяем корректность загрузки файла на удаленный сервер:
+    if 'Transfer' and 'complete' in data_put:
+        print('The file was successfully uploaded')
+    elif 'Transfer' and 'complete' in data_put:
+        assert False, 'The file was not successfully uploaded'
+    else:
+        assert False, 'Something wrong'
+
+    # Удаляем после теста файл
+    ftp.rmd(conf['user']['remote_file'])
+
+    # Завершаем подключение по FTP:
+    ftp_client_finish()
