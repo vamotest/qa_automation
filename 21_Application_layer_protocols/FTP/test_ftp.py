@@ -74,7 +74,6 @@ def test_ftp_rmdir():
 
 
 def test_ftp_cd():
-
     # Авторизовываемся по FTP:
     ftp_authorization()
 
