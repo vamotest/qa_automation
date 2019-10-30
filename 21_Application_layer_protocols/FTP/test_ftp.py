@@ -42,3 +42,32 @@ def test_ftp_mkdir():
 
     # Завершаем подключение по FTP:
     ftp_client_finish()
+
+
+def test_ftp_rmdir():
+
+    # Авторизовываемся по FTP:
+    ftp_authorization()
+
+    # Создаем папку для теста:
+    ftp.mkd('delete')
+
+    # Проверяем файлы и папки в текущей директории:
+    data_before_rmdir = ftp.retrlines('LIST')
+
+    # Удаляем папку:
+    ftp.rmd('delete')
+
+    # Проверяем файлы и папки в текущей директории после удаления:
+    data_after_rmdir = ftp.retrlines('LIST')
+
+    # Проверяем, что данные в директории до и после удаления отличаются:
+    if ('delete' in data_before_rmdir) and ('delete' not in data_after_rmdir):
+        print('The folder was successfully deleted')
+    elif 'delete' in (data_before_rmdir and data_after_rmdir):
+        assert False, 'The folder was not successfully deleted'
+    else:
+        assert False, 'Something wrong'
+
+    # Завершаем подключение по FTP:
+    ftp_client_finish()
