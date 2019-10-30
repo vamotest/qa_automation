@@ -19,3 +19,26 @@ def test_ftp_login():
 
     # Завершаем подключение по FTP:
     ftp_client_finish()
+
+
+def test_ftp_mkdir():
+
+    # Авторизовываемся по FTP:
+    ftp_authorization()
+
+    # Создаем папку на удаленном сервере по указанному пути:
+    data_ftp_mkdir = ftp.mkd(conf['user']['path_to_remote_folder'])
+
+    # Проверяем, что папка была создана:
+    if '257' and 'created' in data_ftp_mkdir:
+        print('The folder was successfully created')
+    elif '550' and 'failed' in data_ftp_mkdir:
+        assert False, 'The folder was not successfully created'
+    else:
+        assert False, 'Something wrong'
+
+    # Удаляем папку после проверки:
+    print(ftp.rmd(conf['user']['path_to_remote_folder']))
+
+    # Завершаем подключение по FTP:
+    ftp_client_finish()
