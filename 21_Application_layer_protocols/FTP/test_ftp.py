@@ -71,3 +71,22 @@ def test_ftp_rmdir():
 
     # Завершаем подключение по FTP:
     ftp_client_finish()
+
+
+def test_ftp_cd():
+
+    # Авторизовываемся по FTP:
+    ftp_authorization()
+
+    data_cd = ftp.cwd((conf['user']['path_to_remote_folder']))
+
+    if 'successfully' and 'changed' in data_cd:
+        print('Directory was successfully changed')
+    elif 'Failed' and 'to change' in data_cd:
+        assert False, 'Directory was not successfully changed'
+    else:
+        assert False, 'Something wrong'
+
+    # Завершаем подключение по FTP:
+    ftp_client_finish()
+
