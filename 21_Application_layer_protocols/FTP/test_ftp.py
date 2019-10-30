@@ -110,7 +110,7 @@ def test_ftp_put():
     else:
         assert False, 'Something wrong'
 
-    # Удаляем после теста файл
+    # Удаляем после теста файл:
     ftp.rmd(conf['user']['remote_file'])
 
     # Завершаем подключение по FTP:
