@@ -23,8 +23,3 @@ RUN pip3 install -r /requirements.txt
 RUN rm requirements.txt
 
 CMD /bin/bash
-
-
-
-
-
