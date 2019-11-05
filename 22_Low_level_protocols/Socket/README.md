@@ -16,7 +16,7 @@
 * При возникновении ошибки `error [SSL: CERTIFICATE_VERIFY_FAILED] certificate 
 verify failed`:
 ```sh
-Applications > Python {version}
+Applications → Python {version}
 ...
 DoubleClick → Install Certificates.command
 DoubleClick → Update Shell Profile.command
