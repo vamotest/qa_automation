@@ -1,6 +1,6 @@
 import socket
 import ssl
-
+import time
 
 def ssl_create():
     # Создаем SSL-подключение:
@@ -35,10 +35,33 @@ def socket_send(sock, request):
     return sock
 
 
+# def socket_receive(sock):
+#     # Ответ читается порциями по 4096 байт (или 4 кб):
+#     response = sock.recv(2048)
+#     return response.decode()
+
+
 def socket_receive(sock):
-    # Ответ читается порциями по 4096 байт (или 4 кб):
-    response = sock.recv(4096)
-    return response.decode()
+    # Конец ответа, до которого будем искать:
+    end_response = b'</html>'
+
+    # Итоговый ответ:
+    total_response = []
+
+    while True:
+        response = sock.recv(8192)
+        if end_response in response:
+            total_response.append(response[:response.find(end_response)])
+            break
+        total_response.append(response)
+        if len(total_response) > 1:
+            # Проверяем, если end_response был разбит
+            last_pair = total_response[-2] + total_response[-1]
+            if end_response in last_pair:
+                total_response[-2] = last_pair[:last_pair.find(end_response)]
+                total_response.pop()
+                break
+    return ''.join(str(x) for x in total_response)
 
 
 def close_connect(sock):
