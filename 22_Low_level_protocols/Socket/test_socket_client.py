@@ -29,6 +29,9 @@ def test_get_response():
     # Ответ читается порциями по 4096 байт (или 4 кб):
     response_data = socket_receive(sock)
 
+    # Закрываем соединение:
+    close_connect(sock)
+
     # Проверяем, что мы получили успешный ответ:
     if 'HTTP/1.1' and '200' and 'OK' in response_data:
         print(f'{method}: The resource has been fetched and is transmitted'
@@ -38,5 +41,3 @@ def test_get_response():
     else:
         assert False, 'Something wrong'
 
-    # Закрываем соединение:
-    close_connect(sock)
