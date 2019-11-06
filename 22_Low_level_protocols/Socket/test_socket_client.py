@@ -26,7 +26,7 @@ def test_get_response():
     # Отправляем запрос:
     sock = socket_send(sock, request)
 
-    # Ответ читается порциями по 4096 байт (или 4 кб):
+    # Получаем ответ:
     response_data = socket_receive(sock)
 
     # Закрываем соединение:
