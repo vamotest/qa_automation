@@ -35,12 +35,6 @@ def socket_send(sock, request):
     return sock
 
 
-# def socket_receive(sock):
-#     # Ответ читается порциями по 4096 байт (или 4 кб):
-#     response = sock.recv(2048)
-#     return response.decode()
-
-
 def socket_receive(sock):
     # Конец ответа, до которого будем искать:
     end_response = b'</html>'
