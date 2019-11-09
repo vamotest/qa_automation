@@ -20,7 +20,6 @@
 ```
 script:
     - run pytest 13_Selenium_remote_start/BrowserStack/test_remote_grid.py
-
 ```
 * Так как в тестах используется `url` c личными данными для доступа 
 к `BrowserStack`, то необходимо добавить данные параметры 
