@@ -3,8 +3,6 @@ python: 3.7
 dist: xenial
 sudo: true
 script:
-    - python3 -m venv env
-    - source env/bin/activate
-    - pip3 install --upgrade pip
-    - pip3 install -r requirements.txt
-    - python3 -m pytest 26_Continuous_Integration/test_remote_grid.py -s -v
+    - pip install pipenv
+    - pipenv install --ignore-pipfile
+    - pipenv run pytest 26_Continuous_Integration/test_remote_grid.py
