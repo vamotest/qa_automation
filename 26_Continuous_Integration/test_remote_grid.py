@@ -13,8 +13,7 @@ desired_cap = {
 
 driver = webdriver.Remote(
     command_executor=
-        protocol + '://' + login + ':' + password + '@' +
-        host + ':' + port + '/' + hub,
+    'http://eubelov1:PhgpeViAK8knGySJZPfb@hub.browserstack.com:80/wd/hub',
     desired_capabilities=desired_cap
 )
 
