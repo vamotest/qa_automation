@@ -5,4 +5,4 @@ sudo: true
 script:
     - pip install pipenv
     - pipenv install --ignore-pipfile
-    - pipenv run pytest 26_Continuous_Integration/test_remote_grid.py
+    - pipenv run pytest 13_Selenium_remote_start/BrowserStack/test_remote_grid.py
