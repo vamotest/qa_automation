@@ -4,7 +4,7 @@
 1) Использовав Selenium написать любые тест на любой сайт
 2) Выложить на GitHub
 3) Прикрутить запуски в Travis CI
-4) Добавить в README.md бейджик build
+4) Добавить в README бейджик build
 
 Для запуска тестов можно использовать любой SaaS-grid
 Сборка на Travis CI должна быть зеленая, в репозитории должен быть бейджик
@@ -19,7 +19,7 @@
 для запуска тестов будем указывать: 
 ```
 script:
-    - run pytest 13_Selenium_remote_start/BrowserStack/test_remote_grid.py
+    - run pytest 13_Selenium_remote_start/BrowserStack/test_remote_grid.py -s -v
 ```
 * Так как в тестах используется `url` c личными данными для доступа 
 к `BrowserStack`, то необходимо добавить данные параметры 
