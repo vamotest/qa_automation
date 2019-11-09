@@ -1,7 +1,7 @@
 # Непрерывная интеграция [![Build Status](https://travis-ci.org/vamotest/qa_automation.svg?branch=26_Continuous_Integration)](https://travis-ci.org/vamotest/qa_automation)
 * Запуск тестов через Travis CI
 ```
-1) Использовав Selenium написать любые тест на любой сайт
+1) Использовав Selenium написать тесты на любой сайт
 2) Выложить на GitHub
 3) Прикрутить запуски в Travis CI
 4) Добавить в README бейджик build
