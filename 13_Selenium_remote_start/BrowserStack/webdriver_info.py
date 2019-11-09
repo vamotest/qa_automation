@@ -1,4 +1,12 @@
+import os
 from selenium import webdriver
+
+protocol = os.environ['protocol']
+login = os.environ['login']
+password = os.environ['password']
+host = os.environ['host']
+port = os.environ['port']
+hub = os.environ['hub']
 
 
 def remote_driver():
@@ -14,8 +22,10 @@ def remote_driver():
 
     driver = webdriver.Remote(
         command_executor=
-        'http://eubelov1:PhgpeViAK8knGySJZPfb@hub.browserstack.com:80/wd/hub',
+        protocol + '://' + login + ':' + password + '@' + host + ':' + port + '/' + hub,
         desired_capabilities=desired_capabilities
     )
 
     return driver
+
+
