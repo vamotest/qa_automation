@@ -40,3 +40,12 @@ v.0.1: digest: sha256:{SHA_ID} size: 4947
 ```sh
 ~ docker pull vamotest/my_repo
 ```
+
+* Создаем виртуальное окружение:
+```sh
+~ python3 -m venv env
+```
+* Активируем:
+```sh
+~ source env/bin/activate
+```
