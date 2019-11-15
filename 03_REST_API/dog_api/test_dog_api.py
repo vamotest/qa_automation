@@ -56,7 +56,8 @@ class TestDogParametrized:
 
     def test_given_breed_in_list(self, response_breeds_list, breed):
         """
-        Тест проверяет успешность нахождения породы собаки в списке всех пород
+        Тест проверяет успешность нахождения определенной породы собаки
+        в списке всех пород
         """
         if breed in response_breeds_list['message']:
             assert f'{breed} in response_breeds_list'
