@@ -50,10 +50,7 @@ class TestDog:
         else:
             assert False, 'Something wrong'
 
-
-@pytest.mark.parametrize('breed', ["akita", "eskimo", "vizsla", "whippet"])
-class TestDogParametrized:
-
+    @pytest.mark.parametrize('breed', ["akita", "eskimo", "vizsla", "whippet"])
     def test_given_breed_in_list(self, response_breeds_list, breed):
         """
         Тест проверяет успешность нахождения определенной породы собаки
