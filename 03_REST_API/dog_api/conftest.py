@@ -1,14 +1,6 @@
+from variables import random_image_url, concrete_breed_url, all_breeds_url
 import requests
 import pytest
-
-# url произвольного изображения породы собаки
-random_image_url = 'https://dog.ceo/api/breeds/image/random'
-
-# url породы собаки
-concrete_breed_url = 'https://dog.ceo/api/breed/'
-
-# url списка всех пород
-all_breeds_url = 'https://dog.ceo/api/breeds/list/all'
 
 
 @pytest.fixture()
