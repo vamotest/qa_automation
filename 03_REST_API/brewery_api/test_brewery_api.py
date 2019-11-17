@@ -49,23 +49,22 @@ class TestBrewery:
         """
         Тест проверяет по выбранному городу
         """
-        response_brewery_name = requests.get(breweries_url).json()
-        if city in response_brewery_name[0]['city']:
-            assert f'Name: {city}'
-        elif city not in response_brewery_name[0]['city']:
-            assert f'Name: {city}'
+        response_brewery_city = requests.get(breweries_url).json()
+        if city in response_brewery_city[0]['city']:
+            assert f'City: {city}'
+        elif city not in response_brewery_city[0]['city']:
+            assert f'City: {city}'
         else:
             assert False, 'Something wrong'
 
     @pytest.mark.parametrize('tag', ["Patio"])
-    def test_brewery_by_tag(self, tag):
+    def test_brewery_by_tag(self, tag, response_brewery_by_tag):
         """
         Тест проверяет по выбранному тегу
         """
-        response_brewery_name = requests.get(breweries_url).json()
-        if tag in response_brewery_name[0]['tag_list']:
-            assert f'Name: {tag}'
-        elif tag not in response_brewery_name[0]['tag_list']:
-            assert f'Name: {tag}'
+        if tag in response_brewery_by_tag[0]['tag_list']:
+            assert f'Tag: {tag}'
+        elif tag not in response_brewery_by_tag[0]['tag_list']:
+            assert f'Tag: {tag}'
         else:
             assert False, 'Something wrong'
