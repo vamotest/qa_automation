@@ -10,7 +10,7 @@ class TestBrewery:
         Тест проверяет, что пришел список пивоварен
         """
         if response_brewery_list is not None:
-            assert response_brewery_list
+            print(response_brewery_list)
         elif response_brewery_list is not None:
             assert False, response_brewery_list
         else:
@@ -23,9 +23,9 @@ class TestBrewery:
         """
         response_brewery_state = requests.get(state_url).json()
         if state in response_brewery_state[0]['state']:
-            assert f'State: {state}'
+            print(f'State: {state}')
         elif state not in response_brewery_state[0]['state']:
-            assert f'State: {state}'
+            assert False, f'State: {state}'
         else:
             assert False, 'Something wrong'
 
@@ -37,9 +37,9 @@ class TestBrewery:
         """
         response_brewery_name = requests.get(breweries_url).json()
         if name in response_brewery_name[0]['name']:
-            assert f'Name: {name}'
+            print(f'Name: {name}')
         elif name not in response_brewery_name[0]['name']:
-            assert f'Name: {name}'
+            assert False, f'Name: {name}'
         else:
             assert False, 'Something wrong'
 
@@ -51,9 +51,9 @@ class TestBrewery:
         """
         response_brewery_city = requests.get(breweries_url).json()
         if city in response_brewery_city[0]['city']:
-            assert f'City: {city}'
+            print(f'City: {city}')
         elif city not in response_brewery_city[0]['city']:
-            assert f'City: {city}'
+            assert False, f'City: {city}'
         else:
             assert False, 'Something wrong'
 
@@ -63,8 +63,8 @@ class TestBrewery:
         Тест проверяет по выбранному тегу
         """
         if tag in response_brewery_by_tag[0]['tag_list']:
-            assert f'Tag: {tag}'
+            print(f'Tag: {tag}')
         elif tag not in response_brewery_by_tag[0]['tag_list']:
-            assert f'Tag: {tag}'
+            assert False, f'Tag: {tag}'
         else:
             assert False, 'Something wrong'
