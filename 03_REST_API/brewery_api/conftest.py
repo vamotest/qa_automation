@@ -21,12 +21,20 @@ def state_url():
     return state_url
 
 
+@pytest.fixture()
+def name_url():
+    """
+    Фикстура возвращает ссылку пивоварен по имени
+    """
+    state_url = f'{breweries_url}' + '?by_name='
+    return state_url
+
+
 @pytest.fixture(params=[{"by_tag": "patio"}])
 def response_brewery_by_tag(request):
     """
-    Фикстура возвращает список пивоварен, выбранных по тэгу
+    Фикстура возвращает список пивоварен, выбранных по тегу
     """
     response = requests.get(breweries_url, params=request.param).json()
     return response
-
 
