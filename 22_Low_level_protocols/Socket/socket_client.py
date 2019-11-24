@@ -1,6 +1,6 @@
 import socket
 import ssl
-import time
+
 
 def ssl_create():
     # Создаем SSL-подключение:
