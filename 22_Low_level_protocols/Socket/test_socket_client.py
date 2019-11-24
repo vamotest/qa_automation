@@ -40,4 +40,3 @@ def test_get_response():
         assert False, '400 Bad Request '
     else:
         assert False, 'Something wrong'
-
