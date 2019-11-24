@@ -48,7 +48,7 @@ def main():
     # Создаем SSL-подключение:
     context = ssl_create()
 
-    # Cоздаем Socket-client:
+    # Создаем Socket-client:
     sock = socket_create(context, host)
 
     # Подключаемся к серверу:
