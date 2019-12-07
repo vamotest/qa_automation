@@ -1,12 +1,12 @@
-
-def test_start_driver(chosen_driver, opencart_url):
+def test_start_driver(browser):
     """
     Проверяем, что в выбранном или дефолтном браузере открывается
     запрашиваемая или дефолтная страница и находится заголовок 'Your Store'
     :param
-    chosen_driver = default or user browser,
-    opencart_url = default or user url
+    browser = default or user browser
     """
-    chosen_driver.get(opencart_url)
-    assert chosen_driver.title == 'Your Store'
-    chosen_driver.close()
+    browser.open_main_page()
+    title = browser.wd.title
+    browser.quit()
+
+    assert title == 'Your Store'
