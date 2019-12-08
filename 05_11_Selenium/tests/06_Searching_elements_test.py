@@ -1,4 +1,6 @@
+from locators.main_page import MainPage
 from locators.header import Header
+from locators.search_page import SearchPage
 from locators.user_page import UserPage
 from locators.user_login import UserLogin
 from locators.breadcrumbs import BreadCrumbs
@@ -79,3 +81,27 @@ def test_change_currency(browser):
 
     # Проверяем, что была выбрана правильная валюта:
     assert dollar == '$' and pounds == '£' and euro == '€'
+
+
+def test_search_product(browser):
+    """
+    Проверка поиск товара на странице
+    :param browser:
+    """
+
+    # Открывам главную страницу:
+    browser.open_main_page()
+
+    # Очищаем поле ввода и вводим интересующий нас товар:
+    browser.wd.find_element(*MainPage.search_string).clear()
+    browser.wd.find_element(*MainPage.search_string).send_keys('Canon EOS 5D')
+    browser.wd.find_element(*MainPage.search_button).click()
+
+    search_query = browser.wd.find_element(*SearchPage.search_query).text
+    search_product = browser.wd.find_element(*SearchPage.Canon_EOS_50).text
+
+    # Проверяем, что был поиск по интересующему нас товару:
+    assert search_query == 'Search - Canon EOS 5D'
+
+    # Проверям, что в результатах поиска есть интересующий нас товар:
+    assert search_product == 'Canon EOS 5D'
