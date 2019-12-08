@@ -6,6 +6,7 @@ from locators.user_login import UserLogin
 from locators.breadcrumbs import BreadCrumbs
 from locators.product_page import ProductPage
 import yaml
+import time
 
 conf = yaml.safe_load(open('configuration.yml'))
 
@@ -130,3 +131,22 @@ def test_add_to_cart(browser):
     # Проверяем, что товар был успешно добавлен:
     add_result = browser.wd.find_element(*ProductPage.alert_success).text
     assert 'Success' in add_result
+
+
+def test_remove_from_cart(browser):
+    """
+    Проверка удаление товара из корзины
+    :param browser:
+    """
+
+    # Добавляем товар в корзину:
+    test_add_to_cart(browser)
+
+    # Удаляем товар из корзины:
+    browser.wd.find_element(*ProductPage.cart_button).click()
+    browser.wd.find_element(*ProductPage.remove_product).click()
+    browser.wd.find_element(*ProductPage.cart_button).click()
+
+    # Проверяем, что товар был успешно удален:
+    remove_result = browser.wd.find_element(*ProductPage.empty_cart).text
+    assert remove_result == 'Your shopping cart is empty!'
