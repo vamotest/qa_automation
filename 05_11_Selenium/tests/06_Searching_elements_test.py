@@ -6,7 +6,6 @@ from locators.user_login import UserLogin
 from locators.breadcrumbs import BreadCrumbs
 from locators.product_page import ProductPage
 import yaml
-import time
 
 conf = yaml.safe_load(open('configuration.yml'))
 
