@@ -25,5 +25,8 @@ class Browser:
     def open_main_page(self):
         self.wd.get(self.url)
 
+    def open_admin_page(self):
+        self.wd.get(self.url + '/admin')
+
     def quit(self):
         self.wd.quit()
