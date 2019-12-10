@@ -14,7 +14,7 @@ def pytest_addoption(parser):
     parser.addoption(
         "--url",
         action="store",
-        default="http://127.0.0.1:80/",
+        default="http://127.0.0.1:80",
         help="This is opencart_url",
         required=False
     )
