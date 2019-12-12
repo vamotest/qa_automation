@@ -2,8 +2,9 @@
 
 ## Index
 * [How to use](#How_to_use)
-* [Основы Selenium](#Основы_Selenium)
-* [Поиск элементов ](#Поиск_элементов)
+* [05_Основы Selenium](#05_Selenium_intro)
+* [06_Поиск элементов](#06_Searching_elements)
+* [07_Работа с элементами](#07_Work_with_elements)
 
 ### How to use
 * Создайте виртуальное окружение и активируйте его:
@@ -26,7 +27,7 @@
 ```
 
 **[⬆ Back to Index](#index)**
-### Основы_Selenium
+### 05_Selenium_intro
 
 ```
 Установить opencart
@@ -56,7 +57,7 @@
 ```
 
 **[⬆ Back to Index](#index)**
-### Поиск_элементов
+### 06_Searching_elements
 
 ```
 1. Описать элементы на страницах: 
@@ -78,4 +79,22 @@
 * Запускаем тесты:
 ```sh
 ~ python3 -m pytest 06_Searching_elements_test.py [--browser] --verbose
+```
+
+**[⬆ Back to Index](#index)**
+### 07_Work_with_elements
+
+```
+1. Для страницы Products реализовать тесты, которые проверяют функциональность добавления, изменения и удаления продукта
+
+Требования:
+Тесты проходят в браузерах Firefox, Chrome.
+Отсутствуют дублирующиеся и захардкоженные локаторы в методах.
+Тесты независимы друг от друга.
+Код легко поддерживать и изменять
+```
+
+* Запускаем тесты:
+```sh
+~ python3 -m pytest 07_Work_with_elements_test.py [--browser] --verbose
 ```
