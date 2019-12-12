@@ -157,3 +157,27 @@ def test_edit_product(browser):
     alert_success = browser.wd.find_element(
         *AdminPage.Products.AddProduct.alert_success)
     assert 'Success: You have modified products!' in alert_success.text
+
+
+def test_delete_product(browser):
+    # Авторизация под учетной записью администратора:
+    admin_authorization(browser)
+
+    # Navigation -> Catalog -> Products:
+    open_products_from_catalog(browser)
+
+    product_for_delete = browser.wd.find_elements(
+        *AdminPage.Products.ProductList.product_for_edit)[1]
+    product_for_delete.click()
+
+    # Ищем кнопку "Delete" и нажимаем на нее:
+    delete_button = browser.wd.find_element(*AdminPage.Products.delete_button)
+    delete_button.click()
+
+    # Подтверждаем действие удаления на странице браузера:
+    browser.accept_alert()
+
+    # Проверяем успешность удаления продукта из Product List:
+    alert_success = browser.wd.find_element(
+        *AdminPage.Products.AddProduct.alert_success)
+    assert 'Success: You have modified products!' in alert_success.text
