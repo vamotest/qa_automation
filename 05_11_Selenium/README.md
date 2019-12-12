@@ -26,6 +26,7 @@
 ~ docker-compose up -d
 ```
 
+
 **[⬆ Back to Index](#index)**
 ### 05_Selenium_intro
 
@@ -56,6 +57,7 @@
 [--verbose]: increase verbosity
 ```
 
+
 **[⬆ Back to Index](#index)**
 ### 06_Searching_elements
 
@@ -81,11 +83,13 @@
 ~ python3 -m pytest 06_Searching_elements_test.py [--browser] --verbose
 ```
 
+
 **[⬆ Back to Index](#index)**
 ### 07_Work_with_elements
 
 ```
-1. Для страницы Products реализовать тесты, которые проверяют функциональность добавления, изменения и удаления продукта
+Для страницы Products реализовать тесты, которые проверяют 
+функциональность добавления, изменения и удаления продукта
 
 Требования:
 Тесты проходят в браузерах Firefox, Chrome.
