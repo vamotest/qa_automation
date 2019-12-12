@@ -16,7 +16,7 @@ min_quantity = conf['new']['min_quantity']
 
 def admin_authorization(browser):
     """
-    Авторизация под учетной записию администратора
+    Авторизация под учетной записью администратора
     :param browser:
     """
 
@@ -53,20 +53,11 @@ def open_products_from_catalog(browser):
     products.click()
 
 
-def test_add_new_product(browser):
+def add_product(browser):
     """
-    Добавление нового продукта в Product List
+    Добавление продукта
     :param browser:
     """
-    # Авторизация под учетной записию администратора:
-    admin_authorization(browser)
-
-    # Navigation -> Catalog -> Products:
-    open_products_from_catalog(browser)
-
-    # Ищем кнопку "Add new" и нажимаем на нее:
-    add_new_button = browser.wd.find_element(*AdminPage.Products.add_new)
-    add_new_button.click()
 
     # Ищем поле "Product name", очищаем и вводим данные:
     product_name_field = browser.wd.find_element(
@@ -103,11 +94,31 @@ def test_add_new_product(browser):
     min_quantity_field.clear()
     min_quantity_field.send_keys(min_quantity)
 
+
+def test_add_new_product(browser):
+    """
+    Добавление нового продукта в Product List
+    :param browser:
+    """
+
+    # Авторизация под учетной записью администратора:
+    admin_authorization(browser)
+
+    # Navigation -> Catalog -> Products:
+    open_products_from_catalog(browser)
+
+    # Ищем кнопку "Add new" и нажимаем на нее:
+    add_new_button = browser.wd.find_element(*AdminPage.Products.add_new)
+    add_new_button.click()
+
+    # Добавляем продукт:
+    add_product(browser)
+
     # Ищем кнопку "Save" и нажимаем на нее:
     save_button = browser.wd.find_element(*AdminPage.Products.AddProduct.save)
     save_button.click()
 
-    # Проверяем успешности добавления нового продукта в Product List:
+    # Проверяем успешность добавления нового продукта в Product List:
     alert_success = browser.wd.find_element(
         *AdminPage.Products.AddProduct.alert_success)
     assert 'Success: You have modified products!' in alert_success.text
