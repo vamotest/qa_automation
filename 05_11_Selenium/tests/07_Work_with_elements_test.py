@@ -122,3 +122,38 @@ def test_add_new_product(browser):
     alert_success = browser.wd.find_element(
         *AdminPage.Products.AddProduct.alert_success)
     assert 'Success: You have modified products!' in alert_success.text
+
+
+def test_edit_product(browser):
+    """
+    Изменение продукта в Product List
+    :param browser:
+    """
+
+    # Авторизация под учетной записью администратора:
+    admin_authorization(browser)
+
+    # Navigation -> Catalog -> Products:
+    open_products_from_catalog(browser)
+
+    # Выбираем продукт для измения и нажимаем на него:
+    product_for_edit = browser.wd.find_elements(
+        *AdminPage.Products.ProductList.product_for_edit)[1]
+    product_for_edit.click()
+
+    # Ищем кнопку "Edit" и нажимаем на нее:
+    edit_button = browser.wd.find_elements(
+        *AdminPage.Products.ProductList.edit_button)[0]
+    edit_button.click()
+
+    # Вводим данные нового продукта:
+    add_product(browser)
+
+    # Ищем кнопку "Save" и нажимаем на нее:
+    save_button = browser.wd.find_element(*AdminPage.Products.AddProduct.save)
+    save_button.click()
+
+    # Проверяем успешность изменения продукта в Product List:
+    alert_success = browser.wd.find_element(
+        *AdminPage.Products.AddProduct.alert_success)
+    assert 'Success: You have modified products!' in alert_success.text
