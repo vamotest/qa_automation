@@ -1,9 +1,9 @@
 # Index
-* [How to use](#How_to_use)
-* [05 Основы Selenium](#05-selenium-intro)
-* [06 Поиск элементов](#06-searching_elements)
-* [07 Работа с элементами](#07-work-with-elements)
-* [08 Действия с элементами](#08-actions-with-elements)
+1. [How to use](#how-to-use)
+2. [05 Основы Selenium](#selenium-intro)
+3. [06 Поиск элементов](#searching_elements)
+4. [07 Работа с элементами](#work-with-elements)
+5. [08 Действия с элементами](#actions-with-elements)
 
 ## How to use
 * Создайте виртуальное окружение и активируйте его:
