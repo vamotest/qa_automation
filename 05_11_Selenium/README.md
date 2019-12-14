@@ -4,6 +4,7 @@
 3. [Поиск элементов](#searching-elements)
 4. [Работа с элементами](#work-with-elements)
 5. [Действия с элементами](#actions-with-elements)
+6. [Ожидание элементов](#waiting-for-elements)
 
 ## How to use
 * Создайте виртуальное окружение и активируйте его:
@@ -110,4 +111,26 @@
 * Запускаем тесты:
 ```shell script
 ~ python3 -m pytest 08_Actions_with_elements_test.py [--browser] --verbose
+```
+
+**[⬆ Back to Index](#index)**
+## Ожидание элементов
+```
+Добавить ожидание элементов
+Цель: Тесты проходят в браузерах firefox, chrome. 
+Отсутствуют дублирующиеся и захардкоженные локаторы в методах. 
+Тесты независимы друг от друга. Код легко поддерживать и изменять.
+
+1. Добавить ожидания элементов и обработку исключений для тестов страницы 
+Products
+2. Добавить ожидание в настройки браузера перед тестом
+3. Добавить опцию выставления ожидания для браузера в опции командной строки
+```
+* Запускаем тесты:
+```shell script
+~ python3 -m pytest 09_Waiting_for_elements_test.py [--browser] [--implicitly_wait] --verbose
+```
+* Arguments:
+```sh
+[-implicitly_wait] (default="60"): Implicit browser timeout in seconds
 ```
