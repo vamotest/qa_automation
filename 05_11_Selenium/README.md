@@ -1,7 +1,7 @@
 # Index
 1. [How to use](#how-to-use)
 2. [Основы Selenium](#selenium-intro)
-3. [Поиск элементов](#searching_elements)
+3. [Поиск элементов](#searching-elements)
 4. [Работа с элементами](#work-with-elements)
 5. [Действия с элементами](#actions-with-elements)
 
