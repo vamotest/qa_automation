@@ -1,9 +1,9 @@
 # Index
 1. [How to use](#how-to-use)
-2. [05 Основы Selenium](#selenium-intro)
-3. [06 Поиск элементов](#searching_elements)
-4. [07 Работа с элементами](#work-with-elements)
-5. [08 Действия с элементами](#actions-with-elements)
+2. [Основы Selenium](#selenium-intro)
+3. [Поиск элементов](#searching_elements)
+4. [Работа с элементами](#work-with-elements)
+5. [Действия с элементами](#actions-with-elements)
 
 ## How to use
 * Создайте виртуальное окружение и активируйте его:
@@ -27,7 +27,7 @@
 
 
 **[⬆ Back to Index](#index)**
-## 05 Основы Selenium
+## Основы Selenium
 
 ```
 Установить opencart
@@ -57,7 +57,7 @@
 
 
 **[⬆ Back to Index](#index)**
-## 06 Поиск элементов
+## Поиск элементов
 
 ```
 1. Описать элементы на страницах: 
@@ -82,7 +82,7 @@
 
 
 **[⬆ Back to Index](#index)**
-## 07 Работа с элементами
+## Работа с элементами
 
 ```
 Для страницы Products реализовать тесты, которые проверяют 
@@ -101,7 +101,7 @@
 
 
 **[⬆ Back to Index](#index)**
-## 08 Действия с элементами
+## Действия с элементами
 ```
 Цель: Научиться работать с ActionChains
 1. Зайти на сайт https://code.makery.ch/library/dart-drag-and-drop/
