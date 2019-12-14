@@ -1,22 +1,21 @@
-# Selenium
-
-## Index
+# Index
 * [How to use](#How_to_use)
-* [05_Основы Selenium](#05_Selenium_intro)
-* [06_Поиск элементов](#06_Searching_elements)
-* [07_Работа с элементами](#07_Work_with_elements)
+* [05 Основы Selenium](#05-selenium-intro)
+* [06 Поиск элементов](#06-searching_elements)
+* [07 Работа с элементами](#07-work-with-elements)
+* [08 Действия с элементами](#08-actions-with-elements)
 
-### How to use
+## How to use
 * Создайте виртуальное окружение и активируйте его:
-```sh
+```shell script
 ~ python3 -m venv env && source env/bin/activate
 ```
 * Обновите pip до последней версии:
-```sh
+```shell script
 ~ pip install --upgrade pip
 ```
 * Установите зависимости:
-```sh
+```shell script
 ~ pip install -r requirements.txt
 ```
 
@@ -28,7 +27,7 @@
 
 
 **[⬆ Back to Index](#index)**
-### 05_Selenium_intro
+## 05 Основы Selenium
 
 ```
 Установить opencart
@@ -45,11 +44,10 @@
 ```
 
 * Запускаем тесты:
-```sh
+```shell script
 ~ pytest test_selenium.py [--opencart_url] [--browser] [--verbose]
 ~ python3 -m pytest 05_Selenium_intro_test.py --url="http://localhost/index.php" --browser=Firefox --verbose
 ```
-
 * Arguments:
 ```sh
 [--browser] (default="Chrome"): Chrome/Firefox/Safari
@@ -59,7 +57,7 @@
 
 
 **[⬆ Back to Index](#index)**
-### 06_Searching_elements
+## 06 Поиск элементов
 
 ```
 1. Описать элементы на страницах: 
@@ -77,15 +75,14 @@
 Локаторы используются из отдельного пакета с локаторами.
 Тесты независимы друг от друга.
 ```
-
 * Запускаем тесты:
-```sh
+```shell script
 ~ python3 -m pytest 06_Searching_elements_test.py [--browser] --verbose
 ```
 
 
 **[⬆ Back to Index](#index)**
-### 07_Work_with_elements
+## 07 Работа с элементами
 
 ```
 Для страницы Products реализовать тесты, которые проверяют 
@@ -97,8 +94,20 @@
 Тесты независимы друг от друга.
 Код легко поддерживать и изменять
 ```
-
 * Запускаем тесты:
-```sh
+```shell script
 ~ python3 -m pytest 07_Work_with_elements_test.py [--browser] --verbose
+```
+
+
+**[⬆ Back to Index](#index)**
+## 08 Действия с элементами
+```
+Цель: Научиться работать с ActionChains
+1. Зайти на сайт https://code.makery.ch/library/dart-drag-and-drop/
+2. В Examples-Basic сложить все иконки документов в корзинку
+```
+* Запускаем тесты:
+```shell script
+~ python3 -m pytest 08_Actions_with_elements_test.py [--browser] --verbose
 ```
