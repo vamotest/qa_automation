@@ -16,7 +16,7 @@ def test_drag_and_drop(browser):
     documents = browser.wd.find_elements(*DragAndDrop.document)
     trash = browser.wd.find_element(*DragAndDrop.trash)
 
-    # С помощью, ActionChains перетаскиваем каждый документы в корзину:
+    # С помощью, ActionChains перетаскиваем каждый документ в корзину:
     for document in documents:
         actions = ActionChains(browser.wd)
         actions.drag_and_drop(document, trash).perform()
