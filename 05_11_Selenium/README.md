@@ -5,6 +5,9 @@
 4. [Работа с элементами](#work-with-elements)
 5. [Действия с элементами](#actions-with-elements)
 6. [Ожидание элементов](#waiting-for-elements)
+7. [PageObject](#page-object)
+8. [Работа с окнами](#work-with-windows)
+
 
 ## How to use
 * Создайте виртуальное окружение и активируйте его:
@@ -133,4 +136,16 @@ Products
 * Arguments:
 ```sh
 [-implicitly_wait] (default="60"): Implicit browser timeout in seconds
+```
+
+**[⬆ Back to Index](#index)**
+## Работа с окнами
+```
+Реализовать загрузку файла:
+1) В админ панели в разделе Catalog -> Downloads есть форма для загрузки файлов
+Нужно, реализовать загрузку файлов через эту форму.
+```
+* Запускаем тесты:
+```shell script
+~ python3 -m pytest 11_Work_with_windows_test.py [--browser] [--implicitly_wait] --verbose
 ```
