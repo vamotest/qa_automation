@@ -10,10 +10,12 @@ class AdminPage:
         class CatalogMenu:
 
             products = (By.XPATH, '//*[@id="menu-catalog"]//*[text() = "Products"]')
+            downloads = (By.LINK_TEXT, 'Downloads')
 
     class Products:
 
         add_new = (By.CSS_SELECTOR, 'a[data-original-title="Add New"]')
+
         delete_button = (By.CSS_SELECTOR, 'button[data-original-title="Delete"]')
         success_delete = (By.CSS_SELECTOR, '.alert.alert-success.alert-dismissible')
 
@@ -35,3 +37,9 @@ class AdminPage:
 
             save = (By.CSS_SELECTOR, 'button[data-original-title="Save"]')
             alert_success = (By.CLASS_NAME, 'alert-success')
+
+            alert_upload_success = (By.CLASS_NAME, 'alert alert-success alert-dismissible')
+
+            upload_button = (By.ID, 'button-upload')
+            upload_file = (By.CSS_SELECTOR, 'input[type=file]')
+            download_name = (By.CSS_SELECTOR, 'input[type=text]')
