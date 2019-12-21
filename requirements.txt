@@ -1,7 +1,7 @@
+allure-pytest==2.8.6
 pandas==0.25.3
 paramiko==2.6.0
 pytest==5.3.2
-allure-pytest==2.8.6
 pytest-html==2.0.1
 pyyaml==5.1.2
 selenium==3.141.0
