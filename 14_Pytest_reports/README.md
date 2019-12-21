@@ -3,6 +3,8 @@
 Расширить отчет pytest-plugin путем сбора инфы информации:
 о установленных пакетах и переменных окружения
 ```
+
+## How to use
 * Добавляем `pytest-html` в `requirements.txt`
 ```shell script
 ~ nano requirements.txt
