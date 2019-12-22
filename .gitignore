@@ -104,3 +104,8 @@ venv.bak/
 .mypy_cache/
 
 ._*
+
+# robot framework
+output.xml
+log.html
+report.html
