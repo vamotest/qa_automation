@@ -31,5 +31,5 @@ robotframework-selenium2library==3.0.0
 ```shell script
 ~ robot test_admin_page.robot
 ```
-* После выполнения теста в текущей директории создадуться файлы `output.xml`, 
+* После выполнения теста в текущей директории создадутся файлы `output.xml`, 
 `log.html`, `report.html`
