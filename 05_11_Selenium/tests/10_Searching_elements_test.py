@@ -65,9 +65,14 @@ def test_change_currency(browser, currency):
     """
 
     header = Header(browser.wd)
+
+    # Открывам главную страницу:
     browser.open_main_page()
 
+    # Выбираем parametrize.currency:
     header.change_currency(currency)
+
+    # Проверяем, что была выбрана правильная валюта:
     new_currency = header.get_currency()
     assert currency == new_currency
 
