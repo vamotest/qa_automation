@@ -5,7 +5,9 @@ from locators.user_page import UserPage
 from locators.breadcrumbs import BreadCrumbs
 from locators.product_page import ProductPage
 from page_objects.user_login import UserLogin
+from page_objects.header import Header
 import yaml
+import pytest
 
 conf = yaml.safe_load(open('configuration.yml'))
 
@@ -54,32 +56,20 @@ def test_login_user(browser):
     assert account_breadcrumb == 'Account'
 
 
-def test_change_currency(browser):
+@pytest.mark.parametrize('currency', ["USD", "GBP", "EUR"])
+def test_change_currency(browser, currency):
     """
-    Проверка смены валют в Header'е
+    :param currency:
     :param browser:
+    :return:
     """
 
-    # Открывам главную страницу:
+    header = Header(browser.wd)
     browser.open_main_page()
 
-    # Нажимаем на кнопку смены валюты и выбираем dollar:
-    browser.wd.find_element(*Header.currency_button).click()
-    browser.wd.find_element(*Header.currency_dollar).click()
-    dollar = browser.wd.find_element(*Header.current_currency).text
-
-    # Нажимаем на кнопку смены валюты и выбираем pounds:
-    browser.wd.find_element(*Header.currency_button).click()
-    browser.wd.find_element(*Header.currency_pound).click()
-    pounds = browser.wd.find_element(*Header.current_currency).text
-
-    # Нажимаем на кнопку смены валюты и выбираем euro:
-    browser.wd.find_element(*Header.currency_button).click()
-    browser.wd.find_element(*Header.currency_euro).click()
-    euro = browser.wd.find_element(*Header.current_currency).text
-
-    # Проверяем, что была выбрана правильная валюта:
-    assert dollar == '$' and pounds == '£' and euro == '€'
+    header.change_currency(currency)
+    new_currency = header.get_currency()
+    assert currency == new_currency
 
 
 def test_search_product(browser):
