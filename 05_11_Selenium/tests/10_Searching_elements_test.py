@@ -1,11 +1,10 @@
-from locators.main_page import MainPage
-from locators.header import Header
-from locators.search_page import SearchPage
 from locators.user_page import UserPage
 from locators.breadcrumbs import BreadCrumbs
 from locators.product_page import ProductPage
 from page_objects.user_login import UserLogin
 from page_objects.header import Header
+from page_objects.search_page import SearchPage
+from page_objects.main_page import MainPage
 import yaml
 import pytest
 
@@ -59,6 +58,7 @@ def test_login_user(browser):
 @pytest.mark.parametrize('currency', ["USD", "GBP", "EUR"])
 def test_change_currency(browser, currency):
     """
+    Проверка смены валюты в Header'е
     :param currency:
     :param browser:
     :return:
@@ -83,16 +83,16 @@ def test_search_product(browser):
     :param browser:
     """
 
+    main_page = MainPage(browser.wd)
+    search_page = SearchPage(browser.wd)
+
     # Открывам главную страницу:
     browser.open_main_page()
 
     # Очищаем поле ввода и вводим интересующий нас товар:
-    browser.wd.find_element(*MainPage.search_string).clear()
-    browser.wd.find_element(*MainPage.search_string).send_keys('Canon EOS 5D')
-    browser.wd.find_element(*MainPage.search_button).click()
-
-    search_query = browser.wd.find_element(*SearchPage.search_query).text
-    search_product = browser.wd.find_element(*SearchPage.Canon_EOS_5D).text
+    main_page.search('Canon EOS 5D')
+    search_query = search_page.get_search_query_text()
+    search_product = search_page.get_search_product_text()
 
     # Проверяем, что был поиск по интересующему нас товару:
     assert search_query == 'Search - Canon EOS 5D'
