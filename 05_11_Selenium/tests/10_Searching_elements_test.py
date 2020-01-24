@@ -127,25 +127,6 @@ def test_add_to_cart(browser):
     assert 'Success' in result
 
 
-
-    # # Открывам главную страницу:
-    # browser.open_main_page()
-    #
-    # # Ищем iPhone среди товаров на главной странице:
-    # browser.wd.find_element(*SearchPage.iPhone).click()
-    #
-    # # Ощищаем поле ввода и вводим интересующее нас количество товара:
-    # browser.wd.find_element(*ProductPage.quantity).clear()
-    # browser.wd.find_element(*ProductPage.quantity).send_keys("2")
-    #
-    # # Нажимаем добавить в корзину:
-    # browser.wd.find_element(*ProductPage.add_to_cart).click()
-    #
-    # # Проверяем, что товар был успешно добавлен:
-    # add_result = browser.wd.find_element(*ProductPage.alert_success).text
-    # assert 'Success' in add_result
-
-
 def test_remove_from_cart(browser):
     """
     Проверка удаление товара из корзины
