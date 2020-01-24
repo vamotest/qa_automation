@@ -1,10 +1,11 @@
 from locators.user_page import UserPage
 from locators.breadcrumbs import BreadCrumbs
-from locators.product_page import ProductPage
+# from locators.product_page import ProductPage
 from page_objects.user_login import UserLogin
 from page_objects.header import Header
 from page_objects.search_page import SearchPage
 from page_objects.main_page import MainPage
+from page_objects.product_page import ProductPage
 import yaml
 import pytest
 
@@ -106,23 +107,43 @@ def test_add_to_cart(browser):
     Проверка добавления товара в корзину
     :param browser:
     """
+    search_page = SearchPage(browser.wd)
+    product_page = ProductPage(browser.wd)
 
     # Открывам главную страницу:
     browser.open_main_page()
 
     # Ищем iPhone среди товаров на главной странице:
-    browser.wd.find_element(*SearchPage.iPhone).click()
+    search_page.click_product()
 
-    # Ощищаем поле ввода и вводим интересующее нас количество товара:
-    browser.wd.find_element(*ProductPage.quantity).clear()
-    browser.wd.find_element(*ProductPage.quantity).send_keys("2")
+    # Вводим интересующее нас количество товара:
+    product_page.quantity('2')
 
     # Нажимаем добавить в корзину:
-    browser.wd.find_element(*ProductPage.add_to_cart).click()
+    product_page.add_to_cart()
 
     # Проверяем, что товар был успешно добавлен:
-    add_result = browser.wd.find_element(*ProductPage.alert_success).text
-    assert 'Success' in add_result
+    result = product_page.add_to_cart_result()
+    assert 'Success' in result
+
+
+
+    # # Открывам главную страницу:
+    # browser.open_main_page()
+    #
+    # # Ищем iPhone среди товаров на главной странице:
+    # browser.wd.find_element(*SearchPage.iPhone).click()
+    #
+    # # Ощищаем поле ввода и вводим интересующее нас количество товара:
+    # browser.wd.find_element(*ProductPage.quantity).clear()
+    # browser.wd.find_element(*ProductPage.quantity).send_keys("2")
+    #
+    # # Нажимаем добавить в корзину:
+    # browser.wd.find_element(*ProductPage.add_to_cart).click()
+    #
+    # # Проверяем, что товар был успешно добавлен:
+    # add_result = browser.wd.find_element(*ProductPage.alert_success).text
+    # assert 'Success' in add_result
 
 
 def test_remove_from_cart(browser):
