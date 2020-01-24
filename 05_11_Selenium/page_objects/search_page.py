@@ -13,3 +13,7 @@ class SearchPage:
     def get_search_product_text(self):
         search_product = self.driver.find_element(*search_page.Canon_EOS_5D)
         return search_product.text
+
+    def click_product(self):
+        product = self.driver.find_element(*search_page.iPhone)
+        product.click()
