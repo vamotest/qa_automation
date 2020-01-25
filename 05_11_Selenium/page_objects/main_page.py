@@ -14,3 +14,13 @@ class MainPage:
 
         search_button = self.driver.find_element(*main_page.search_button)
         search_button.click()
+
+    def switch_next_banner(self):
+        next_banner_button = self.driver.find_element(*main_page.next_banner)
+        next_banner_button.click()
+
+    def check_banner_is_present(self, banner):
+        if banner == 'macbook':
+            self.driver.find_element(*main_page.macbook_banner)
+        elif banner == 'iphone':
+            self.driver.find_element(*main_page.iphone_banner)
