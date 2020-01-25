@@ -7,7 +7,6 @@ class ProductPage:
         self.driver = driver
 
     def quantity(self, text):
-
         quantity = self.driver.find_element(*product_page.quantity)
         quantity.clear()
         quantity.send_keys(text)
@@ -18,4 +17,18 @@ class ProductPage:
 
     def add_to_cart_result(self):
         result = self.driver.find_element(*product_page.alert_success)
+        return result.text
+
+    def delete_from_cart(self):
+        cart_button = self.driver.find_element(*product_page.cart_button)
+        cart_button.click()
+
+        remove_product = self.driver.find_element(*product_page.remove_product)
+        remove_product.click()
+
+        cart_button = self.driver.find_element(*product_page.cart_button)
+        cart_button.click()
+
+    def delete_from_cart_result(self):
+        result = self.driver.find_element(*product_page.empty_cart)
         return result.text
