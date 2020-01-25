@@ -133,14 +133,14 @@ def test_remove_from_cart(browser):
     :param browser:
     """
 
+    product_page = ProductPage(browser.wd)
+
     # Добавляем товар в корзину:
     test_add_to_cart(browser)
 
     # Удаляем товар из корзины:
-    browser.wd.find_element(*ProductPage.cart_button).click()
-    browser.wd.find_element(*ProductPage.remove_product).click()
-    browser.wd.find_element(*ProductPage.cart_button).click()
+    product_page.delete_from_cart()
 
     # Проверяем, что товар был успешно удален:
-    remove_result = browser.wd.find_element(*ProductPage.empty_cart).text
-    assert remove_result == 'Your shopping cart is empty!'
+    result = product_page.delete_from_cart_result()
+    assert result == 'Your shopping cart is empty!'
