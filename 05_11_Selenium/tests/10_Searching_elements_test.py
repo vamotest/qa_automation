@@ -1,11 +1,11 @@
-from locators.user_page import UserPage
-from locators.breadcrumbs import BreadCrumbs
-# from locators.product_page import ProductPage
+from page_objects.user_page import UserPage
 from page_objects.user_login import UserLogin
+from page_objects.breadcrumbs import BreadCrumbs
 from page_objects.header import Header
 from page_objects.search_page import SearchPage
 from page_objects.main_page import MainPage
 from page_objects.product_page import ProductPage
+
 import yaml
 import pytest
 
@@ -21,39 +21,39 @@ def test_login_user(browser):
     :param browser:
     """
 
+    user_page = UserPage(browser.wd)
+    user_login = UserLogin(browser.wd)
+    breadcrumbs = BreadCrumbs(browser.wd)
+
     # Открывам главную страницу:
     browser.open_main_page()
 
-    # Выбираем аккаунт и нажимаем войти:
-    browser.wd.find_element(*UserPage.my_account).click()
-    browser.wd.find_element(*UserPage.log_in).click()
+    # Выбираем аккаунт
+    user_page.my_account()
+
+    # Нажимаем войти:
+    user_page.log_in()
 
     # Очищаем поля и вводим данные для авторизации:
-    user_login = UserLogin(browser.wd)
-
     user_login.fill_username(email)
     user_login.fill_password(password)
     user_login.login()
 
     # Собираем хлебные крошки после Login:
-    account_breadcrumb = browser.wd.find_element(
-        *BreadCrumbs.account_breadcrumb
-    ).text
+    account_breadcrumb = breadcrumbs.account_breadcrumb()
 
     # Нажимаем кнопку Logout для выхода из аккаунта:
-    browser.wd.find_element(*UserPage.log_out).click()
+    user_page.log_out()
 
     # Собираем хлебные крошки после Logout:
-    logout_breadcrumb = browser.wd.find_element(
-        *BreadCrumbs.logout_breadcrumb
-    ).text
+    logout_breadcrumb = breadcrumbs.logout_breadcrumb()
 
     # Подтвержаем выход из аккаунта:
-    browser.wd.find_element(*UserPage.continue_button).click()
+    user_page.confirm_exit()
 
     # Проверяем хлебные крошки:
-    assert logout_breadcrumb == 'Logout'
     assert account_breadcrumb == 'Account'
+    assert logout_breadcrumb == 'Logout'
 
 
 @pytest.mark.parametrize('currency', ["USD", "GBP", "EUR"])
