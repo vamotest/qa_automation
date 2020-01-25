@@ -1,22 +1,23 @@
-# Selenium
+# Index
+1. [How to use](#how-to-use)
+2. [Основы Selenium](#selenium-intro)
+3. [Поиск элементов](#searching-elements)
+4. [Работа с элементами](#work-with-elements)
+5. [Действия с элементами](#actions-with-elements)
+6. [Ожидание элементов](#waiting-for-elements)
+7. [Шаблон проектирования PageObject](#page-object)
 
-## Index
-* [How to use](#How_to_use)
-* [05_Основы Selenium](#05_Selenium_intro)
-* [06_Поиск элементов](#06_Searching_elements)
-* [07_Работа с элементами](#07_Work_with_elements)
-
-### How to use
+## How to use
 * Создайте виртуальное окружение и активируйте его:
-```sh
+```shell script
 ~ python3 -m venv env && source env/bin/activate
 ```
 * Обновите pip до последней версии:
-```sh
+```shell script
 ~ pip install --upgrade pip
 ```
 * Установите зависимости:
-```sh
+```shell script
 ~ pip install -r requirements.txt
 ```
 
@@ -28,7 +29,7 @@
 
 
 **[⬆ Back to Index](#index)**
-### 05_Selenium_intro
+## Основы Selenium
 
 ```
 Установить opencart
@@ -45,11 +46,10 @@
 ```
 
 * Запускаем тесты:
-```sh
+```shell script
 ~ pytest test_selenium.py [--opencart_url] [--browser] [--verbose]
 ~ python3 -m pytest 05_Selenium_intro_test.py --url="http://localhost/index.php" --browser=Firefox --verbose
 ```
-
 * Arguments:
 ```sh
 [--browser] (default="Chrome"): Chrome/Firefox/Safari
@@ -59,7 +59,7 @@
 
 
 **[⬆ Back to Index](#index)**
-### 06_Searching_elements
+## Поиск элементов
 
 ```
 1. Описать элементы на страницах: 
@@ -77,15 +77,14 @@
 Локаторы используются из отдельного пакета с локаторами.
 Тесты независимы друг от друга.
 ```
-
 * Запускаем тесты:
-```sh
+```shell script
 ~ python3 -m pytest 06_Searching_elements_test.py [--browser] --verbose
 ```
 
 
 **[⬆ Back to Index](#index)**
-### 07_Work_with_elements
+## Работа с элементами
 
 ```
 Для страницы Products реализовать тесты, которые проверяют 
@@ -97,8 +96,59 @@
 Тесты независимы друг от друга.
 Код легко поддерживать и изменять
 ```
-
 * Запускаем тесты:
-```sh
+```shell script
 ~ python3 -m pytest 07_Work_with_elements_test.py [--browser] --verbose
+```
+
+
+**[⬆ Back to Index](#index)**
+## Действия с элементами
+```
+Цель: Научиться работать с ActionChains
+1. Зайти на сайт https://code.makery.ch/library/dart-drag-and-drop/
+2. В Examples-Basic сложить все иконки документов в корзинку
+```
+* Запускаем тесты:
+```shell script
+~ python3 -m pytest 08_Actions_with_elements_test.py [--browser] --verbose
+```
+
+**[⬆ Back to Index](#index)**
+## Ожидание элементов
+```
+Добавить ожидание элементов
+Цель: Тесты проходят в браузерах firefox, chrome. 
+Отсутствуют дублирующиеся и захардкоженные локаторы в методах. 
+Тесты независимы друг от друга. Код легко поддерживать и изменять.
+
+1. Добавить ожидания элементов и обработку исключений для тестов страницы 
+Products
+2. Добавить ожидание в настройки браузера перед тестом
+3. Добавить опцию выставления ожидания для браузера в опции командной строки
+```
+* Запускаем тесты:
+```shell script
+~ python3 -m pytest 09_Waiting_for_elements_test.py [--browser] [--implicitly_wait] --verbose
+```
+* Arguments:
+```sh
+[-implicitly_wait] (default="60"): Implicit browser timeout in seconds
+```
+
+**[⬆ Back to Index](#index)**
+## Шаблон проектирования PageObject
+```
+Пишем тесты в паттерне PageObject
+
+1. Перевести тесты проекта на паттерн PageObject.
+2. Добавить 5 новых тестов в проект (добавлять отдельным коммитом).
+```
+* Запускаем старые тесты:
+```shell script
+~ python3 -m pytest 10_Searching_elements_test.py [--browser] --verbose
+```
+* Запускаем новые тесты:
+```shell script
+~ python3 -m pytest 10_ [--browser] --verbose
 ```
