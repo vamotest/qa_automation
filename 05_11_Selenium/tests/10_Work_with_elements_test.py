@@ -40,14 +40,14 @@ def open_products_from_catalog(browser):
     Navigation -> Catalog -> Products
     :param browser:
     """
+    admin_authorization(browser)
+    admin_page = AdminPage(browser.wd)
 
     # В разделе Navigation выбираем Catalog:
-    catalog = browser.wd.find_element(*AdminPage.Navigation.catalog)
-    catalog.click()
+    admin_page.click_catalog()
 
     # В разделе Catalog выбираем Products:
-    products = browser.wd.find_element(*AdminPage.Navigation.CatalogMenu.products)
-    products.click()
+    admin_page.click_products()
 
 
 def add_product(browser):
