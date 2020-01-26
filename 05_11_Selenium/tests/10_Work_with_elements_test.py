@@ -1,5 +1,6 @@
 from page_objects.admin_login import AdminLogin
 from page_objects.admin_page import AdminPage
+
 import yaml
 
 conf = yaml.safe_load(open('configuration.yml'))
@@ -40,7 +41,7 @@ def open_products_from_catalog(browser):
     Navigation -> Catalog -> Products
     :param browser:
     """
-    admin_authorization(browser)
+
     admin_page = AdminPage(browser.wd)
 
     # В разделе Navigation выбираем Catalog:
@@ -56,40 +57,25 @@ def add_product(browser):
     :param browser:
     """
 
+    admin_page = AdminPage(browser.wd)
+
     # Ищем поле "Product name", очищаем и вводим данные:
-    product_name_field = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.product_name)
-    product_name_field.clear()
-    product_name_field.send_keys(product_name)
+    admin_page.fill_product_name(product_name)
 
     # Ищем поле "Meta tag title", очищаем и вводим данные:
-    meta_tag_title_field = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.meta_tag_title)
-    meta_tag_title_field.clear()
-    meta_tag_title_field.send_keys(meta_tag_title)
+    admin_page.fill_meta_tag_title(meta_tag_title)
 
     # В навигационное панеле ищем "Data" и нажимаем:
-    navigation_data = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.navigation_data)
-    navigation_data.click()
+    admin_page.click_navigation_data()
 
     # Ищем поле "Model", очищаем и вводим данные:
-    model_field = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.model)
-    model_field.clear()
-    model_field.send_keys(model)
+    admin_page.fill_model(model)
 
     # Ищем поле "Price", очищаем и вводим данные:
-    price_field = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.price)
-    price_field.clear()
-    price_field.send_keys(price)
+    admin_page.fill_price(price)
 
     # Ищем поле "Minimum Quantity", очищаем и вводим данные:
-    min_quantity_field = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.min_quantity)
-    min_quantity_field.clear()
-    min_quantity_field.send_keys(min_quantity)
+    admin_page.fill_min_quantity(min_quantity)
 
 
 def test_add_new_product(browser):
