@@ -51,3 +51,16 @@ class AdminPage:
             *admin_page.Products.AddProduct.min_quantity)
         field.clear()
         field.send_keys(min_quantity)
+
+    def add_new_button(self):
+        button = self.driver.find_element(*admin_page.Products.add_new)
+        button.click()
+
+    def save_button(self):
+        button = self.driver.find_element(*admin_page.Products.AddProduct.save)
+        button.click()
+
+    def alert_success(self):
+        alert = self.driver.find_element(
+            *admin_page.Products.AddProduct.alert_success)
+        return alert.text
