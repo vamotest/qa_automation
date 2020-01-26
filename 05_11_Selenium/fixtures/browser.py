@@ -3,7 +3,7 @@ from selenium import webdriver
 
 class Browser:
 
-    def __init__(self, browser, url):
+    def __init__(self, browser, url, implicitly_wait):
         if browser.lower() == 'chrome':
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument('headless')
@@ -19,7 +19,7 @@ class Browser:
             self.wd.maximize_window()
         else:
             raise ValueError(f'Unrecognized browser: {browser}')
-        self.wd.implicitly_wait(20)
+        self.wd.implicitly_wait(int(implicitly_wait))
         self.url = url
 
     def open_main_page(self):
