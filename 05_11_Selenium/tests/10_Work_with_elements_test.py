@@ -84,6 +84,8 @@ def test_add_new_product(browser):
     :param browser:
     """
 
+    admin_page = AdminPage(browser.wd)
+
     # Авторизация под учетной записью администратора:
     admin_authorization(browser)
 
@@ -91,20 +93,19 @@ def test_add_new_product(browser):
     open_products_from_catalog(browser)
 
     # Ищем кнопку "Add new" и нажимаем на нее:
-    add_new_button = browser.wd.find_element(*AdminPage.Products.add_new)
-    add_new_button.click()
+    admin_page.add_new_button()
 
     # Добавляем продукт:
     add_product(browser)
 
     # Ищем кнопку "Save" и нажимаем на нее:
-    save_button = browser.wd.find_element(*AdminPage.Products.AddProduct.save)
-    save_button.click()
+    admin_page.save_button()
 
     # Проверяем успешность добавления нового продукта в Product List:
-    alert_success = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.alert_success)
-    assert 'Success: You have modified products!' in alert_success.text
+    alert_success = admin_page.alert_success()
+
+    # Проверяем успешность добавления нового продукта в Product List:
+    assert 'Success: You have modified products!' in alert_success
 
 
 def test_edit_product(browser):
