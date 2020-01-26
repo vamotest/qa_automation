@@ -146,9 +146,9 @@ Products
 ```
 * Запускаем старые тесты:
 ```shell script
-~ python3 -m pytest 10_Searching_elements_test.py [--browser] --verbose
+~ python3 -m pytest 10_Work_with_elements_test.py [--browser] --verbose
 ```
 * Запускаем новые тесты:
 ```shell script
-~ python3 -m pytest 10_ [--browser] --verbose
+~ python3 -m pytest 10_PageObject_test.py [--browser] --verbose
 ```
