@@ -64,3 +64,17 @@ class AdminPage:
         alert = self.driver.find_element(
             *admin_page.Products.AddProduct.alert_success)
         return alert.text
+
+    def product_for_edit(self):
+        product = self.driver.find_elements(
+            *admin_page.Products.ProductList.product_for_edit)[1]
+        product.click()
+
+    def edit_button(self):
+        button = self.driver.find_elements(
+            *admin_page.Products.ProductList.edit_button)[0]
+        button.click()
+
+    def save_button(self):
+        button = self.driver.find_element(*admin_page.Products.AddProduct.save)
+        button.click()
