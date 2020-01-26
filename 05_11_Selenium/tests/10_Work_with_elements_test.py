@@ -1,5 +1,6 @@
 from page_objects.admin_login import AdminLogin
 from page_objects.admin_page import AdminPage
+from page_objects.utils import Utils
 
 import yaml
 
@@ -140,24 +141,29 @@ def test_edit_product(browser):
 
 
 def test_delete_product(browser):
+    """
+    Удаление продукта из Product List
+    :param browser:
+    :return:
+    """
+    admin_page = AdminPage(browser.wd)
+    utils = Utils(browser.wd)
+
     # Авторизация под учетной записью администратора:
     admin_authorization(browser)
 
     # Navigation -> Catalog -> Products:
     open_products_from_catalog(browser)
 
-    product_for_delete = browser.wd.find_elements(
-        *AdminPage.Products.ProductList.product_for_edit)[1]
-    product_for_delete.click()
+    # Выбираем продукт для удаления:
+    admin_page.product_for_delete()
 
     # Ищем кнопку "Delete" и нажимаем на нее:
-    delete_button = browser.wd.find_element(*AdminPage.Products.delete_button)
-    delete_button.click()
+    admin_page.delete_button()
 
     # Подтверждаем действие удаления на странице браузера:
-    browser.accept_alert()
+    utils.accept_alert()
 
     # Проверяем успешность удаления продукта из Product List:
-    alert_success = browser.wd.find_element(
-        *AdminPage.Products.AddProduct.alert_success)
-    assert 'Success: You have modified products!' in alert_success.text
+    alert_success = admin_page.alert_success()
+    assert 'Success: You have modified products!' in alert_success
