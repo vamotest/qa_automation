@@ -16,6 +16,6 @@ class AdminLogin:
         field.clear()
         field.send_keys(password)
 
-    def login(self):
+    def login_button(self):
         button = self.driver.find_element(*admin_login.login_button)
         button.click()
