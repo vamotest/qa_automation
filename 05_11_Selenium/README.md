@@ -5,6 +5,7 @@
 4. [Работа с элементами](#work-with-elements)
 5. [Действия с элементами](#actions-with-elements)
 6. [Ожидание элементов](#waiting-for-elements)
+7. [Шаблон проектирования PageObject](#page-object)
 
 ## How to use
 * Создайте виртуальное окружение и активируйте его:
@@ -133,4 +134,21 @@ Products
 * Arguments:
 ```sh
 [-implicitly_wait] (default="60"): Implicit browser timeout in seconds
+```
+
+**[⬆ Back to Index](#index)**
+## Шаблон проектирования PageObject
+```
+Пишем тесты в паттерне PageObject
+
+1. Перевести тесты проекта на паттерн PageObject.
+2. Добавить 5 новых тестов в проект (добавлять отдельным коммитом).
+```
+* Запускаем старые тесты:
+```shell script
+~ python3 -m pytest 10_Work_with_elements_test.py [--browser] --verbose
+```
+* Запускаем новые тесты:
+```shell script
+~ python3 -m pytest 10_PageObject_test.py [--browser] --verbose
 ```
