@@ -1,5 +1,10 @@
-from selenium import webdriver
 from .logger import create_log
+import datetime
+import time
+import os
+
+from selenium import webdriver
+from selenium.webdriver.support.events import EventFiringWebDriver, AbstractEventListener
 
 
 class Browser:
@@ -8,15 +13,18 @@ class Browser:
         if browser.lower() == 'chrome':
             chrome_options = webdriver.ChromeOptions()
             chrome_options.add_argument('headless')
-            self.wd = webdriver.Chrome(options=chrome_options)
+            wd = webdriver.Chrome(options=chrome_options)
+            self.wd = EventFiringWebDriver(wd, MyListener())
             self.wd.maximize_window()
         elif browser.lower() == 'firefox':
             firefox_options = webdriver.FirefoxOptions()
             firefox_options.add_argument('headless')
-            self.wd = webdriver.Firefox(options=firefox_options)
+            wd = webdriver.Firefox(options=firefox_options)
+            self.wd = EventFiringWebDriver(wd, MyListener())
             self.wd.maximize_window()
         elif browser.lower() == 'safari':
-            self.wd = webdriver.Safari()
+            wd = webdriver.Safari()
+            self.wd = EventFiringWebDriver(wd, MyListener())
             self.wd.maximize_window()
         else:
             raise ValueError(f'Unrecognized browser: {browser}')
@@ -35,3 +43,31 @@ class Browser:
     def quit(self):
         self.log.info('Closing browser')
         self.wd.quit()
+
+
+class MyListener(AbstractEventListener):
+
+    def __init__(self, *args, **kwargs):
+        self.log = create_log()
+        super().__init__(*args, **kwargs)
+
+    def on_exception(self, exception, driver):
+
+        try:
+            os.stat('screenshots')
+        except FileNotFoundError:
+            os.mkdir('screenshots')
+
+        date = datetime.datetime.now().strftime('%Y-%m-%d')
+
+        driver.save_screenshot(
+            f'screenshots/exception-{date}-{time.time()}-{exception}.png')
+        print(exception)
+
+    def before_find(self, by, value, driver):
+        self.log.info(f'Finding by - {by}, selector - {value}')
+        print(by, value)
+
+    def before_click(self, element, driver):
+        self.log.info(f'Clicking on {element}')
+        print(element)
