@@ -109,3 +109,9 @@ venv.bak/
 output.xml
 log.html
 report.html
+
+# Configuration
+configuration.yml
+
+# DataBase
+*.db
