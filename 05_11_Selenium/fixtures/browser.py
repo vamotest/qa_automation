@@ -1,4 +1,5 @@
 from .logger import create_log
+from utils.sqlite import Sqlite
 import datetime
 import time
 import os
@@ -50,6 +51,7 @@ class MyListener(AbstractEventListener):
     def __init__(self, *args, **kwargs):
         self.log = create_log()
         super().__init__(*args, **kwargs)
+        self.db_log = Sqlite()
 
     def on_exception(self, exception, driver):
 
@@ -60,14 +62,19 @@ class MyListener(AbstractEventListener):
 
         date = datetime.datetime.now().strftime('%Y-%m-%d')
 
+        self.db_log.write_log(
+            f'Screenshot path - screenshots/exception-'
+            f'{date}-{time.time()}-{exception}.png')
         driver.save_screenshot(
             f'screenshots/exception-{date}-{time.time()}-{exception}.png')
         print(exception)
 
     def before_find(self, by, value, driver):
+        self.db_log.write_log(f'Finding by - {by}, selector - {value}')
         self.log.info(f'Finding by - {by}, selector - {value}')
         print(by, value)
 
     def before_click(self, element, driver):
+        self.db_log.write_log(f'Clicking on {element}')
         self.log.info(f'Clicking on {element}')
         print(element)
