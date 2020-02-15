@@ -92,5 +92,25 @@ class AdminPage:
             *admin_page.Products.ProductList.edit_button)[0]
         button.click()
 
+    # Titles:
 
+    def get_currencies_titles(self):
+        system = self.driver.find_element(*admin_page.Navigation.system)
+        system.click()
 
+        localisation = self.driver.find_element(
+            *admin_page.Navigation.SystemMenu.localisation)
+        localisation.click()
+
+        currencies = self.driver.find_element(
+            *admin_page.Navigation.SystemMenu.LocalizationMenu.currencies)
+        currencies.click()
+
+        currencies_titles = self.driver.find_elements(
+            *admin_page.Currencies.currency_title)
+
+        titles = []
+
+        for currency in currencies_titles:
+            titles.append(currency.text)
+        return titles
