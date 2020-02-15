@@ -6,10 +6,23 @@ class AdminPage:
     class Navigation:
 
         catalog = (By.CSS_SELECTOR, '#menu-catalog a')
+        system = (By.CSS_SELECTOR, '#menu-system a')
 
         class CatalogMenu:
 
             products = (By.XPATH, '//*[@id="menu-catalog"]//*[text() = "Products"]')
+
+        class SystemMenu:
+
+            localisation = (By.XPATH, '//*[@id="menu-system"]//*[text() = "Localisation"]')
+
+            class LocalizationMenu:
+
+                currencies = (By.XPATH, '//*[@id="menu-system"]//*[text() = "Currencies"]')
+
+    class Currencies:
+
+        currency_title = (By.XPATH, "//form[@id='form-currency']//tbody/tr/td[2]")
 
     class Products:
 
