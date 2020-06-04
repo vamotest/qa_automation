@@ -1,4 +1,6 @@
-from python_types import *
+from python_types import addition_of_numbers, is_leap, is_palindrome, \
+    count_words, replace_string, transpose_matrix, compare_lists, \
+    find_symmetrical_difference, sort_players_score, entry_letter
 
 
 class TestPythonExamples:
@@ -6,102 +8,82 @@ class TestPythonExamples:
     def test_start_fixtures(self, module_fixture, session_fixture):
         return module_fixture, session_fixture
 
-    def test_integers(self, sum_integers_data):
+    def test_addition_of_numbers(self, addition_of_numbers_data):
         """
         Проверка суммы двух чисел
-        :param sum_integers_data:
-        :return:
+        :param addition_of_numbers_data:
         """
+        assert addition_of_numbers(*addition_of_numbers_data) == 9
 
-        assert sum_integers(*sum_integers_data) == 9
-
-    def test_string(self, string_data):
+    def test_is_palindrome(self, is_palindrome_data):
         """
-        Проверка ялвляется ли числа палиндромом
-        :param string_data:
-        :return:
+        Проверка является ли числа палиндромом
+        :param is_palindrome_data:
         """
+        assert is_palindrome(is_palindrome_data) == 'YES'
 
-        assert string(string_data) == 'YES'
-
-
-    def test_string_word(self, string_words_data):
+    def test_count_word(self, count_words_data):
         """
         Проверка количества слов в тексте
-        :param string_words_data:
-        :return:
+        :param count_words_data:
         """
-
-        assert string_words(string_words_data) == 10
-
+        result = count_words(count_words_data)
+        assert result == 10
 
     def test_is_leap(self, is_leap_data):
         """
         Проверка является ли год високосным
         :param is_leap_data:
-        :return:
         """
+        result = is_leap(is_leap_data)
+        assert result == "YES"
 
-        assert is_leap(is_leap_data) == "YES"
-
-
-    def test_string_replace(self, string_replace_data):
+    def test_replace_string(self, replace_string_data):
         """
         Проверка замены строки
-        :param string_replace_data:
-        :return:
+        :param replace_string_data:
         """
+        result = replace_string(replace_string_data)
+        assert result == "one2one3one4one5one6one7one8one9one0one"
 
-        assert string_replace(string_replace_data) \
-            == "one2one3one4one5one6one7one8one9one0one"
-
-
-
-    def test_list_matrix_transpose(self, list_data):
+    def test_transpose_matrix(self, transpose_matrix_data):
         """
-        Проверка вычисление определителя матрица
-        :param list_data:
-        :return:
+        Проверка вычисление определителя матрицы
+        :param transpose_matrix_data:
         """
-
         determinant = 13
-        assert list_matrix_transpose(list_data) == determinant
+        result = transpose_matrix(transpose_matrix_data)
+        assert result == determinant
 
-    def test_list_pairs(self, list_pairs_data):
+    def test_compare_lists(self, compare_lists_data):
         """
-        Проверка попарных списоков
-        :param list_pairs_data:
-        :return:
+        Проверка сравнение попарных списков
+        :param compare_lists_data:
         """
-        assert list_pairs(*list_pairs_data) == [(2, -2), (-5, 5),
-                                                (6, -6), (-2, 2)]
+        result = compare_lists(*compare_lists_data)
+        assert result == [(2, -2), (-5, 5), (6, -6), (-2, 2)]
 
-
-    def test_set_sym_dif(self, set_data):
+    def test_find_symmetrical_difference(self, find_set_data):
         """
         Проверка симметрическая разницы множеств
-        :param set_data:
-        :return:
+        :param find_set_data:
         """
+        result = find_symmetrical_difference(*find_set_data)
+        assert result == {1, 2, 3, 7}
 
-        assert set_sym_dif(*set_data) == {1, 2, 3, 7}
-
-
-    def test_dict_players(self, dict_data):
+    def test_dict_players(self, sort_players_score_data):
         """
         Проверка сортировки значений игроков
-        :param dict_data:
-        :return:
+        :param sort_players_score_data:
         """
+        result = sort_players_score(**sort_players_score_data)
+        assert result == [2780, 2797, 2801, 2822, 2842]
 
-        assert dict_players(**dict_data) == [2780, 2797, 2801, 2822, 2842]
-
-    def test_tuple_text(self, tuple_data):
+    def test_entry_letter(self, entry_letter_data):
         """
         Проверка количества вхождений буквы 'а' в текст
-        :param tuple_data:
-        :return:
+        :param entry_letter_data:
         """
-
-        count = 14
-        assert tuple_text(tuple_data) == count
+        count_letter = 14
+        result = entry_letter(entry_letter_data)
+        assert result == count_letter

@@ -2,7 +2,7 @@ import math
 from numpy import linalg
 
 
-def sum_integers(int1, int2):
+def addition_of_numbers(int1, int2):
     # type: (int, int) -> int
     return int1 + int2
 
@@ -13,7 +13,7 @@ def is_leap(year):
         else 'NO'
 
 
-def string(str_pal):
+def is_palindrome(str_pal):
     # type: (str) -> str
     str_pal_copy = str_pal[:]
     str_pal_copy = str_pal_copy.replace(' ', '')
@@ -21,26 +21,26 @@ def string(str_pal):
     return 'YES' if str_pal_copy == str_pal_copy[::-1] else 'NO'
 
 
-def string_words(text):
+def count_words(text):
     # type: (str) -> int
     words = (text.count(' ') + 1)
     return words
 
 
-def string_replace(str_for_replace):
+def replace_string(str_for_replace):
     # type: (str) -> str
     replaced = str_for_replace.replace('1', 'one')
     return replaced
 
 
-def list_matrix_transpose(matrix):
+def transpose_matrix(matrix):
     # type: (list) -> float
     det_matrix = linalg.det(matrix)
     det_matrix = math.ceil(det_matrix)
     return det_matrix
 
 
-def list_pairs(list1, list2):
+def compare_lists(list1, list2):
     # type: (list, list) -> list
     pairs = []
     for var_x in list1:
@@ -51,20 +51,20 @@ def list_pairs(list1, list2):
     return pairs
 
 
-def set_sym_dif(set1, set2):
+def find_symmetrical_difference(set1, set2):
     # type: (set, set) -> set
     sym_dif = set1.symmetric_difference(set2)
     return sym_dif
 
 
-def dict_players(**players):
+def sort_players_score(**players):
     # type: (dict) -> list
     values = list(players.values())
     values = sorted(values)
     return values
 
 
-def tuple_text(text):
+def entry_letter(text):
     # type: (tuple) -> int
     count_text = text.count('a')
     return count_text

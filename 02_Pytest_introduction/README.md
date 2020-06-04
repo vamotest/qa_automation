@@ -4,7 +4,7 @@
 <ol>
 <li>Написать не менее 10 базовых тестов на основные операции с базовыми типами данных (строки, числа, списки, словари, кортежи, множества) в Python, в качестве тестового фреймворка использовать pytest.</li>
 <li>В тестах необходимо использовать все виды фикстур (session, module, function)</li>
-<li>Должно быть выполнение каких-либо действий по завершению теста. </li>
+<li>Должно быть выполнение каких-либо действий по завершению теста.</li>
 <li>В docstring тестов должно присутствовать описание тестов.</li>
 <li>Добавить инструкцию по запуску тестов на github.</li>
 <li>Тесты должны успешно проходить стилистический анализ с помощью pylint.</li>
@@ -12,35 +12,30 @@
 <li>Все тесты должны проходить успешно.</li>
 </ol>
 
-**Примеры тестовых сценариев:**
-<ol>
-<li>Создать произвольный список из 8 элементов, проверить что длина списка равна 8 элементам.</li>
-<li>Сложить две строки, проверить что полученный результат соответствует ожидаемому.</li>
-</ol>
 
 **Инструкция по запуску тестов:**
 
 * Скопируйте проект в директорию:
-```sh
-https://github.com/vamotest/qa_automation.git
+```shell script
+~ git clone https://github.com/vamotest/qa_automation.git
 ```
 * Перейдите в директорию c тестами:
-```sh
-cd 02_Pytest_introduction/tests
+```shell script
+~ cd 02_Pytest_introduction/tests
 ```
 * Создайте виртуальное окружение и активируйте его:
-```sh
-python3 -m venv env && source env/bin/activate
+```shell script
+~ python3 -m venv env && source env/bin/activate
 ```
 * Обновите pip до последней версии:
-```sh
-pip install --upgrade pip
+```shell script
+~ pip install --upgrade pip
 ```
 * Установите зависимости:
-```sh
-pip install -r requirements.txt
+```shell script
+~ pip install -r requirements.txt
 ```
 * Запустите тесты c флагами:
-```sh
-pytest -v -s
+```shell script
+~ python3 -m pytest -v -s
 ```
