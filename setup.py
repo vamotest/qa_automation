@@ -13,7 +13,7 @@ setup(
         'pandas==0.25.3',
         'paramiko==2.6.0',
         'pytest==4.6.0',
-        'pyyaml==5.1.2',
+        'pyyaml==5.4',
         'selenium==3.141.0'
     ],
     zip_safe=False
