@@ -11,7 +11,7 @@ setup(
     packages=find_packages(exclude=['test']),
     install_requires=[
         'pandas==0.25.3',
-        'paramiko==2.6.0',
+        'paramiko==2.10.1',
         'pytest==4.6.0',
         'pyyaml==5.1.2',
         'selenium==3.141.0'
